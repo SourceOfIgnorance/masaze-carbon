@@ -54,16 +54,52 @@ export const mapIframeSrc =
             <p class="text-sm mt-1">{directions}</p>
           </div>
 
-          <!-- ...socials... -->
-        </div>
+          <div>
+            <h3 class="text-xl font-semibold mb-3 flex items-center">Sledujte ma:</h3>
+            <nav aria-label="Sociálne siete" class="flex space-x-4 ml-2">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded"
+              >
+                <Image
+                  src={facebookIcon}
+                  alt="Facebook"
+                  width={40}
+                  height={40}
+                  class="transition-transform hover:scale-110"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 rounded"
+              >
+                <Image
+                  src={instagramIcon}
+                  alt="Instagram"
+                  width={40}
+                  height={40}
+                  class="transition-transform hover:scale-110"
+                  loading="lazy"
+                />
+              </a>
+            </nav>
+          </div>
 
-        <!-- Popup for copy feedback -->
-        <div
-          id="copy-popup"
-          class="fixed left-1/2 bottom-10 z-50 px-4 py-2 rounded bg-[var(--color-dark)] text-[var(--color-light)] text-sm shadow-lg opacity-0 pointer-events-none transition-opacity duration-300"
-          style="transform: translateX(-50%);"
-        >
-          Skopírované!
+          <!-- Popup for copy feedback -->
+          <div
+            id="copy-popup"
+            class="fixed left-1/2 bottom-10 z-50 px-4 py-2 rounded bg-[var(--color-dark)] text-[var(--color-light)] text-sm shadow-lg opacity-0 pointer-events-none transition-opacity duration-300"
+            style="transform: translateX(-50%);"
+          >
+            Skopírované!
+          </div>
         </div>
       </address>
 

@@ -5,18 +5,31 @@
     --color-dark-85: rgba(58, 39, 26, 0.85);
     --color-light: #F1E9DF;
     --font-primary: 'Lexend', sans-serif;
-    --fs-small: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-    --fs-normal: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
-    --fs-medium: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
-    --fs-large: clamp(1.25rem, 1rem + 1.25vw, 1.5rem);
-    --fs-xl: clamp(1.5rem, 1.25rem + 1.75vw, 2rem);
-    --fs-xxl: clamp(2rem, 1.75rem + 2.5vw, 3rem);
 }
 
-.theme-alt {
-    --color-dark: #1c1c1c;
-    --color-dark-85: rgb(63, 71, 79);
-    --color-light: #d6e0e8;
+/* Theme 1: Default (brown) */
+.theme-default {
+  --color-dark: #3A271A;
+  --color-dark-85: rgba(58, 39, 26, 0.85);
+  --color-light: #F1E9DF;
+}
+/* Theme 2: Gray */
+.theme-gray {
+  --color-dark: #23272f;
+  --color-dark-85: rgba(35, 39, 47, 0.85);
+  --color-light: #ececec;
+}
+/* Theme 3: Blue Gray */
+.theme-bluegray {
+  --color-dark: #232d3b;
+  --color-dark-85: rgba(35, 45, 59, 0.85);
+  --color-light: #e4eaf3;
+}
+/* Theme 4: Purple Gray */
+.theme-purplegray {
+  --color-dark: #2b2538;
+  --color-dark-85: rgba(43, 37, 56, 0.85);
+  --color-light: #eae6f7;
 }
 
 @layer base {
