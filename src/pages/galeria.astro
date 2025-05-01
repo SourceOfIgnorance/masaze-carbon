@@ -1,0 +1,60 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import TransparentBox from "../components/common/TransparentBox.astro";
+import {pageMetadata} from "../const/pageMetadata";
+import {galleryData} from "../const/galleryData";
+---
+
+<MainLayout
+  title={pageMetadata.galeria.title}
+  description={pageMetadata.galeria.description}
+>
+  <div class="container mx-auto px-4 py-12">
+    <!-- Heading and Description -->
+    <TransparentBox
+      heading="Naša Galéria"
+      description="Prezrite si naše priestory, profesionálne vybavenie a produkty, ktoré používame pri masážach."
+    />
+
+    <!-- Thumbnail Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+      {galleryData.map((item, index) => (
+        <div
+          class="cursor-pointer group relative"
+          onclick={`openGallery(${index})`}
+        >
+          <img
+            src={item.thumbnailUrl}
+            alt={item.name}
+            class="rounded-lg shadow-lg max-w-full h-auto transform transition duration-300 group-hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Gallery Modal -->
+  <div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+    <button class="absolute top-4 right-4 text-[var(--color-light)] text-2xl" onclick="closeGallery()">✕</button>
+    <button class="absolute left-4 top-1/2 transform -translate-y-1/2 text-[var(--color-light)] text-2xl" onclick="prevImage()">
+      &#10094;
+    </button>
+    <div>
+      <img
+        id="galleryImage"
+        src=""
+        alt=""
+        class="max-w-4xl max-h-[90%] mx-auto rounded-md"
+      />
+      <p id="galleryCaption" class="text-center text-[var(--color-light)] mt-4"></p>
+    </div>
+    <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-[var(--color-light)] text-2xl" onclick="nextImage()">
+      &#10095;
+    </button>
+  </div>
+
+  <!-- Include the gallery JavaScript -->
+  <script src="/gallery.js" type="module"></script>
+</MainLayout>

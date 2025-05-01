@@ -1,0 +1,80 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ServiceGridSection from "../components/common/ServiceGridSection.astro";
+import {classicMassages, giftCards, specialOffers} from "../const/serviceData";
+import {pageMetadata} from "../const/pageMetadata";
+import TransparentBox from "../components/common/TransparentBox.astro";
+
+export const servicePageHeadings = {
+  classicMassages: {
+    heading: "Klasické Masáže",
+    description: "Vy rozhodujete, my sa prispôsobíme. Ponúkame masáže v dĺžkach 30, 60 a 90 minút.\n" +
+      "Masáž je o vás – a podľa toho ju aj nastavíme. Sami si určíte, čo vaše telo potrebuje – zameriame sa na konkrétnu oblasť, spojíme viacero techník alebo vytvoríme relaxačný celok. "
+  },
+  specialOffers: {
+    heading: "Špeciálne Ponuky",
+    description: "Masáže pre firmy alebo v pohodlí u vás doma.\n" +
+      "Doprajte si profesionálnu masáž tam, kde vám to najviac vyhovuje. Či už chcete zlepšiť pohodu svojich zamestnancov priamo na pracovisku, alebo si oddýchnuť v pohodlí domova – ponúkam riešenie šité na mieru. " +
+      "Masáž bez stresu z presunov, s dôrazom na kvalitu, komfort a osobný prístup.\n"
+  },
+  giftCards: {
+    heading: "Darčekové poukazy",
+    description: "",
+  },
+};
+---
+
+<MainLayout title={pageMetadata.cennik.title} description={pageMetadata.cennik.description}>
+  <div class="relative min-h-screen overflow-hidden">
+    <!-- Hero Section -->
+      <div class="relative pt-32 pb-18 container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold">Cenník</h1>
+      </div>
+
+    <div class="space-y-12">
+      <!-- Klasické Masáže Section -->
+      <div>
+        <!-- TransparentBox Heading Section -->
+        <TransparentBox heading={servicePageHeadings.classicMassages.heading}
+                        description={servicePageHeadings.classicMassages.description}/>
+
+        <!-- Service tiles section -->
+        <div class="container mx-auto px-4 py-8 pb-32">
+          <ServiceGridSection
+            heading={servicePageHeadings.classicMassages.heading}
+            descriptionSection={servicePageHeadings.classicMassages.description}
+            services={classicMassages}
+          />
+        </div>
+      </div>
+
+      <!-- Špeciálne Ponuky Section -->
+      <div>
+        <TransparentBox heading={servicePageHeadings.specialOffers.heading}
+                        description={servicePageHeadings.specialOffers.description}/>
+
+        <div class="container mx-auto px-4 py-8 pb-32">
+          <ServiceGridSection
+            heading={servicePageHeadings.specialOffers.heading}
+            descriptionSection={servicePageHeadings.specialOffers.description}
+            services={specialOffers}
+          />
+        </div>
+      </div>
+
+      <!-- Darčekové poukážky -->
+      <div>
+        <TransparentBox heading={servicePageHeadings.giftCards.heading}
+                        description={servicePageHeadings.giftCards.description}/>
+
+        <div class="container mx-auto px-4 py-8 pb-32">
+          <ServiceGridSection
+            heading={servicePageHeadings.giftCards.heading}
+            descriptionSection={servicePageHeadings.giftCards.description}
+            services={giftCards}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>

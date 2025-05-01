@@ -1,0 +1,81 @@
+---
+// Layout.astro
+import '../styles/global.css';
+import LoadingScreen from "../components/common/LoadingScreen.astro";
+import Footer from "../components/common/Footer.astro";
+import ContactSection from "../components/common/ContactSection.astro";
+import Navbar from "../components/common/Navbar.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {title= 'Masáže Carbon', description = "Profesionálne masážne služby"} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content={description}/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+
+  <title>{title}</title>
+  <!-- Preconnect to font provider -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Critical CSS inline -->
+  <style is:inline>
+      /* Minimal CSS needed for initial render */
+      :root {
+          --color-dark: #3A271A;
+          --color-light: #F1E9DF;
+          --font-primary: system-ui, sans-serif;
+      }
+
+      body {
+          margin: 0;
+          background-color: var(--color-light);
+          color: var(--color-dark);
+          font-family: var(--font-primary);
+      }
+
+      .hero-section {
+          min-height: 100vh;
+          position: relative;
+      }
+  </style>
+
+  <!-- Preload hero image -->
+  <link rel="preload" as="image" href="/src/images/homePage/heroBg-1200.webp"/>
+
+  <!-- Preload font -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </noscript>
+</head>
+
+
+<body class="flex flex-col min-h-screen font-primary text-base">
+<LoadingScreen/>
+<Navbar/>
+<main class="flex-grow">
+  <slot/>
+</main>
+<ContactSection/>
+<Footer/>
+
+<script>
+  document.documentElement.classList.add('fonts-loaded');
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initialize any JavaScript functionality here
+  });
+</script>
+</body>
+
+</html>

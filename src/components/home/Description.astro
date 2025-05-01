@@ -1,0 +1,51 @@
+---
+import {Image} from 'astro:assets';
+import {descriptionData} from "../../const/homeData";
+
+// Import image directly
+import descImage from '../../images/homePage/movingBg.jpg';
+---
+<section id="description"
+         class="container mx-auto my-36 px-6 lg:px-12 max-w-screen-xl">
+  <div class="bg-[var(--color-light)] rounded-lg shadow-xl overflow-hidden">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+      <!-- IMAGE SECTION - Optimized -->
+      <picture>
+        <source
+          srcset="/src/images/homePage/pohybovo1.webp 600w"
+          sizes="(max-width: 640px) 600px"
+          type="image/webp"
+        />
+        <img
+          src="/src/images/homePage/pohybovo1.webp"
+          alt="Description background"
+          class="object-cover rounded-xl"
+          width="600"
+          height="600"
+          loading="lazy"
+        />
+      </picture>
+
+      <!-- TEXT SECTION -->
+      <div class="p-8 lg:p-12 flex flex-col justify-center">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-8 text-[var(--color-dark)]">
+          {descriptionData.title}
+        </h2>
+        <div class="text-[var(--color-dark)]">
+          <p class="text-lg leading-relaxed description-text">
+            {descriptionData.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+    .description-text {
+        text-align: left;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        white-space: pre-line;
+    }
+</style>

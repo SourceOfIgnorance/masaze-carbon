@@ -1,0 +1,23 @@
+---
+import {Image} from 'astro:assets';
+
+interface Props {
+  src: string | URL; // or StaticImageData if you use Astro's image imports
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+}
+
+const {src, alt, width = 400, height = 400, class: className = ''} = Astro.props;
+---
+
+<Image
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  class={className}
+  loading="lazy"
+  decoding="async"
+/>

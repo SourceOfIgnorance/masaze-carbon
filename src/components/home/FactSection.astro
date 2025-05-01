@@ -1,0 +1,47 @@
+---
+import {Image} from 'astro:assets';
+import {benefitsData} from "../../const/homeData";
+
+// Import image directly
+import bgImage from '../../images/homePage/movingBg.jpg';
+---
+
+<section class="relative py-8">
+  <!-- Optimized background image -->
+  <div class="absolute inset-0 -z-10">
+    <picture>
+      <source
+        srcset="/src/images/homePage/pohybovo3.webp 600w"
+        sizes="(max-width: 640px) 600px"
+        type="image/webp"
+      />
+      <img
+        src="/src/images/homePage/pohybovo3.webp"
+        alt="Fact section background"
+        class="w-full h-full object-cover"
+        width="1200"
+        height="800"
+        loading="lazy"
+      />
+    </picture>
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4 text-center">
+    <!-- Heading -->
+    <h3 class="mb-12 text-1xl text-[var(--color-light)]">{benefitsData.title}</h3>
+
+    <!-- Benefits Items -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+      {benefitsData.benefitsTitle.map((title, index) => (
+        <article key={index}>
+          <h4 class="mb-3 text-md text-[var(--color-light)]">{title.split("\n")[0]}</h4>
+          <p class="text-[var(--color-light)] leading-relaxed">
+            {benefitsData.benefitText[index]}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

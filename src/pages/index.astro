@@ -1,16 +1,18 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro"
+import Hero from "../components/home/Hero.astro";
+import Description from "../components/home/Description.astro";
+import FactSection from "../components/home/FactSection.astro";
+import AboutMe from "../components/home/AboutMe.astro";
+import {pageMetadata} from "../const/pageMetadata";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title={pageMetadata.home.title} description={pageMetadata.home.description}>
+  <!-- Above the fold content (critical) -->
+  <Hero/>
+
+  <!-- Below the fold content -->
+  <Description/>
+  <FactSection/>
+  <AboutMe/>
+</MainLayout>
