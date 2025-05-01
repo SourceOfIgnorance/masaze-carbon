@@ -2,7 +2,7 @@
 export const pageMetadata = {
   home: {
     title: "Domov - Masáže Carbon",
-    description: "Profesionálne masážne služby v Carbon"
+    description: "Profesionálne masážne služby"
   },
   cennik: {
     title: "Cenník - Masáže Carbon",
