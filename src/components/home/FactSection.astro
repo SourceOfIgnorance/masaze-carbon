@@ -35,7 +35,7 @@ const benefitsData = {
   </div>
 
   <div class="relative z-10 container mx-auto px-4 sm:px-6 text-center">
-    <h2 id="benefits-title" class="mb-12 text-2xl md:text-3xl font-semibold text-[var(--color-light)]">
+    <h2 id="benefits-title" class="mb-4 text-2xl md:text-3xl font-semibold text-[var(--color-light)]">
       {benefitsData.title}
     </h2>
 
@@ -56,11 +56,7 @@ const benefitsData = {
     </div>
 
     {/* Shadow and Expand Button (mobile only, and only when collapsed) */}
-    <div
-      id="benefits-shadow"
-      class="absolute left-0 right-0 bottom-0 h-16 pointer-events-none bg-gradient-to-t from-[var(--color-light)]/80 to-transparent flex justify-center items-end sm:hidden"
-      style="transition: opacity 0.3s"
-    >
+    <div class="p-1">
       <button
         id="benefits-expand"
         class="mx-auto mb-2 w-8 h-8 rounded-full flex items-center justify-center bg-[var(--color-light)] shadow cursor-pointer border border-[var(--color-dark)]"
@@ -78,16 +74,11 @@ const benefitsData = {
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const grid = document.getElementById('benefits-grid');
-      const shadow = document.getElementById('benefits-shadow');
       const expandBtn = document.getElementById('benefits-expand');
-      if (!grid || !shadow || !expandBtn) return;
+      if (!grid || !expandBtn) return;
 
       expandBtn.addEventListener('click', () => {
         grid.classList.remove('max-h-96', 'overflow-hidden');
-        shadow.style.opacity = '0';
-        setTimeout(() => {
-          shadow.style.display = 'none';
-        }, 300); // match transition duration
       });
     });
   </script>

@@ -1,63 +1,56 @@
 ---
-import {aboutMeData} from "../../const/homeData";
+import {Image} from 'astro:assets';
+import aboutImage from '../../assets/homePage/portraitMe.webp';
+
+export const aboutMeData = {
+  title: "Martin Nikoléni",
+  descriptionOne:
+    "Masáž nevnímam len ako svoju prácu, ale ako cestu, ktorou môžem ľuďom prinášať úľavu, pokoj a vedomie vlastnej hodnoty. Verím, že starostlivosť o seba nie je luxus, ale nevyhnutnosť – najmä v dnešnom svete plnom zhonu.",
+  descriptionTwo:
+    "Klientom ponúkam priestor, kde môžu na chvíľu zastať, nadýchnuť sa a obnoviť nielen svoje telo, ale aj duševnú rovnováhu. Mojím cieľom je, aby každý odchádzal nielen uvoľnený, ale aj o čosi bližšie k sebe samému.",
+  descriptionThree:
+    "Každé telo má svoj vlastný príbeh a mojou úlohou je pomôcť mu nájsť harmóniu.",
+};
 ---
 
 <section
   id="aboutme"
-  class="container mx-auto my-36 px-6 lg:px-12 max-w-screen-xl"
+  class="container mx-auto md:my-36 my-12 px-6 lg:px-12 max-w-screen-xl"
+  aria-labelledby="aboutme-title"
 >
   <div class="bg-[var(--color-light)] rounded-lg overflow-hidden">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-      <!-- Image Section - Optimized with responsive sizes -->
+      <!-- Image Section -->
       <div class="relative p-6 flex items-center justify-center">
-        <picture>
-          <source
-            srcset="/src/images/homePage/portrait1.webp 400w"
-            sizes="(max-width: 640px) 400px,
-                   (max-width: 1024px) 600px,
-                   800px"
-            type="image/webp"
-          />
-          <img
-            src="/src/images/homePage/portrait1.webp"
-            alt={`Portrait of ${aboutMeData.title}`}
-            width="600"
-            height="800"
-            loading="lazy"
-            decoding="async"
-            class="shadow-md object-cover max-h-[550px] w-auto"
-          />
-        </picture>
+        <Image
+          src={aboutImage}
+          alt={`Portrait of ${aboutMeData.title}`}
+          class="shadow-md object-cover max-h-[550px] w-auto rounded-lg"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 600px, 800px"
+          placeholder="blur"
+          loading="lazy"
+          width={600}
+          height={800}
+        />
       </div>
 
       <!-- Text Section -->
       <div class="p-8 lg:p-12 flex flex-col justify-center">
-        <h2 class="text-3xl lg:text-4xl font-bold mb-1 text-[var(--color-dark)]">
+        <h2
+          id="aboutme-title"
+          class="text-3xl lg:text-4xl font-bold mb-1 text-[var(--color-dark)]"
+        >
           {aboutMeData.title}
         </h2>
-        <h3 class="text-md lg:text-xl font-bold mb-8 text-[var(--color-dark)]">
+        <h3 class="text-xl font-bold mb-8 text-[var(--color-dark)]">
           MASÉR TERAPEUT
         </h3>
         <div class="space-y-6 text-[var(--color-dark)]">
-          <p class="leading-relaxed about-text">
-            {aboutMeData.descriptionOne}
-          </p>
-          <p class="leading-relaxed about-text">
-            {aboutMeData.descriptionTwo}
-          </p>
-          <p class="font-bold leading-relaxed about-text">
-            {aboutMeData.descriptionThree}
-          </p>
+          <p class="leading-relaxed">{aboutMeData.descriptionOne}</p>
+          <p class="leading-relaxed">{aboutMeData.descriptionTwo}</p>
+          <p class="font-bold leading-relaxed">{aboutMeData.descriptionThree}</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-    .about-text {
-        text-align: left;
-        overflow-wrap: break-word;
-        word-wrap: break-word;
-    }
-</style>
