@@ -1,13 +1,14 @@
 ---
-import { siteTitle, footerText } from '../../const/footerData';
-
 const currentYear = new Date().getFullYear();
+
+const siteTitle = "Masáže Carbon";
+const footerText = "Všetky práva vyhradené";
 ---
 
 <footer class="py-3 text-center">
   <div class="container mx-auto px-4">
     <p class="text-xs text-[var(--color-dark)]">
-      &copy; {currentYear} {siteTitle}. {footerText}
+      &copy; {currentYear} | {siteTitle} | {footerText}
     </p>
   </div>
 </footer>
