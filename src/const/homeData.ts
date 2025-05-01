@@ -1,15 +1,3 @@
-// Description component data
-export const descriptionData = {
-  title: "Komplexná starostlivosť o telo",
-  description:
-    "Spolu s Robertom Bezakom poskytujeme v Pohybovo komplexnú a individuálne prispôsobenú starostlivosť. Prepájame terapeutickú masáž s odbornými zásahmi do pohybového aparátu pre efektívnejšiu a trvalejšiu úľavu.\n" +
-    "\n" +
-    "Naše služby spájajú výhody masáže a fyzioterapie tak, aby ste sa po každej návšteve cítili lepšie – po fyzickej aj psychickej stránke. Masáže, ktoré ponúkam, sú zamerané na uvoľnenie svalového napätia, podporu cirkulácie a celkovú regeneráciu. Pravidelná starostlivosť o telo je nielen prevenciou, ale aj cestou k dlhodobej pohode.\n" +
-    "\n" +
-    "Ak hľadáte spôsob, ako sa zbaviť stresu, bolesti či napätia, " +
-    "ste na správnom mieste.",
-  imageUrl: "/images/movingBg.jpg" // Replace with the actual path to your image
-}
 
 // FactsSection component data
 export const benefitsData = {
