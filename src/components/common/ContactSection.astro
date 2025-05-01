@@ -1,90 +1,127 @@
 ---
-import {address, socialLinks, mapIframeSrc, directions} from '../../const/contactData';
+import {Image} from 'astro:assets';
+import facebookIcon from '../../assets/icons/facebookIcon.png';
+import instagramIcon from '../../assets/icons/instagramIcon.png';
+
+export const address = `Masáže Carbon, Tovarnícka 412/9, 955 01 Topoľčany`;
+export const directions = "Nachádzame sa na 1. poschodí v budove Carbon.";
+export const mapIframeSrc =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d165.03647136594418!2d18.165796606608236!3d48.5603713259538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b4b0063373029%3A0x7124fd43d1696af1!2zTWFzw6HFvmUgQ2FyYm9u!5e0!3m2!1sen!2ssk!4v1745959330335!5m2!1sen!2ssk";
 ---
 
-<section id="contact-section" class="py-16">
+<section id="contact-section" class="pb-16 md:pt-16 bg-[var(--color-light)]">
   <div class="container mx-auto px-6 lg:px-12 max-w-screen-xl">
-    <!-- Content Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-      <!-- Left Column: Contact Information -->
-      <div
-        class="p-8 rounded-xl transform hover:shadow-lg transition-all duration-300 text-[var(--color-dark)]">
+      <!-- Contact Info -->
+      <address class="p-8 rounded-xl bg-white shadow-lg text-[var(--color-dark)] not-italic">
         <div class="space-y-6">
-          <!-- Appointment Info -->
           <div>
-            <h3 class="text-xl font-semibold mb-3 flex items-center">
-              Objednávky
-            </h3>
-          </div>
-
-          <!-- Contact Details -->
-          <div>
-            <div class="flex items-center mb-3">
-              <p>Telefón:</p>
-              <a href="tel:+421919236109" class="ml-2 transition-colors">
+            <h3 class="text-xl font-semibold mb-3 flex items-center">Objednávky</h3>
+            <p class="flex items-center space-x-2">
+              <span>Telefón:</span>
+              <a
+                href="tel:+421919236109"
+                class="text-blue-600 hover:underline focus:underline focus:outline-none cursor-pointer"
+                data-copy
+                data-value="+421 919 236 109"
+              >
                 +421 919 236 109
               </a>
-            </div>
-
-            <div class="flex items-center mb-3">
-              <p>Email:</p>
-              <a href="mailto:masaze.carbon@gmail.com" class="ml-2 transition-colors">
+            </p>
+            <p class="flex items-center space-x-2 mt-2">
+              <span>Email:</span>
+              <a
+                href="mailto:masaze.carbon@gmail.com"
+                class="text-blue-600 hover:underline focus:underline focus:outline-none cursor-pointer"
+                data-copy
+                data-value="masaze.carbon@gmail.com"
+              >
                 masaze.carbon@gmail.com
               </a>
-            </div>
+            </p>
           </div>
 
-          <!-- Address -->
           <div>
-            <h3 class="text-xl font-semibold mb-3 flex items-center">
-              Kde ma nájdete
-            </h3>
-            <p class="mb-2">{address}</p>
-            <p class="text-sm ">{directions}</p>
+            <h3 class="text-xl font-semibold mb-3 flex items-center">Kde nás nájdete</h3>
+            <p
+              class="cursor-pointer hover:underline focus:underline focus:outline-none"
+              data-copy
+              data-value={address}
+              tabindex="0"
+            >
+              {address}
+            </p>
+            <p class="text-sm mt-1">{directions}</p>
           </div>
 
-          <!-- Social Media -->
-          <div>
-            <h3 class="text-xl font-semibold mb-3 flex items-center">
-              Sledujte ma:
-            </h3>
-            <div class="flex space-x-4 ml-8">
-              {socialLinks.map((link) => (
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="p-2"
-                >
-                  <img
-                    src={link.icon}
-                    alt={link.alt}
-                    class="h-6 w-6"
-                  />
-                </a>
-              ))}
-            </div>
-          </div>
+          <!-- ...socials... -->
         </div>
-      </div>
 
-      <!-- Right Column: Map -->
-      <div class="h-full">
-        <div class="rounded-xl overflow-hidden shadow-md h-full">
-          <iframe
-            src={mapIframeSrc}
-            width="100%"
-            height="450"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            class="w-full h-full min-h-[450px]"
-          ></iframe>
+        <!-- Popup for copy feedback -->
+        <div
+          id="copy-popup"
+          class="fixed left-1/2 bottom-10 z-50 px-4 py-2 rounded bg-[var(--color-dark)] text-[var(--color-light)] text-sm shadow-lg opacity-0 pointer-events-none transition-opacity duration-300"
+          style="transform: translateX(-50%);"
+        >
+          Skopírované!
         </div>
+      </address>
+
+      <!-- Map -->
+      <div class="rounded-xl overflow-hidden shadow-md h-full min-h-[450px]">
+        <iframe
+          src={mapIframeSrc}
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa Masáže Carbon Topoľčany"
+          class="w-full h-full"
+        ></iframe>
       </div>
     </div>
   </div>
+  <script>
+    // Utility: Detect if device is mobile
+    function isMobile() {
+      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    console.log(isMobile());
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const popup = document.getElementById("copy-popup");
+      const copyables = document.querySelectorAll("[data-copy]");
+
+      copyables.forEach(el => {
+        el.addEventListener("click", (e) => {
+          // Only copy on desktop
+          if (!isMobile()) {
+            e.preventDefault();
+            const value = el.getAttribute("data-value");
+            if (!value) return;
+            navigator.clipboard.writeText(value).then(() => {
+              popup.style.opacity = "1";
+              setTimeout(() => {
+                popup.style.opacity = "0";
+              }, 1200);
+            });
+          }
+          // On mobile: do nothing, let default behavior happen (call/email)
+        });
+
+        // Optional: keyboard accessibility for desktop
+        el.addEventListener("keydown", (e) => {
+          if (!isMobile() && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+            el.click();
+          }
+        });
+      });
+    });
+  </script>
 </section>
 
 <style>
@@ -92,7 +129,12 @@ import {address, socialLinks, mapIframeSrc, directions} from '../../const/contac
         text-decoration: none;
     }
 
-    #contact-section .social-icon:hover {
+    #contact-section a:hover,
+    #contact-section a:focus {
+        text-decoration: underline;
+    }
+
+    #contact-section a img:hover {
         filter: brightness(1.2);
     }
 </style>
