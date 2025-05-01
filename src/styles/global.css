@@ -1,16 +1,10 @@
 @import "tailwindcss";
 
-/* Root variables - Using modern CSS */
 :root {
-    /* Color Variables */
-    --color-dark: #3A271A; /* Dark theme color */
-    --color-dark-85: rgba(58, 39, 26, 0.85); /* Dark theme color */
-    --color-light: #F1E9DF; /* Light theme color */
-
-    /* Typography Variables */
+    --color-dark: #3A271A;
+    --color-dark-85: rgba(58, 39, 26, 0.85);
+    --color-light: #F1E9DF;
     --font-primary: 'Lexend', sans-serif;
-
-    /* Font sizes using modern clamp for fluid typography */
     --fs-small: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
     --fs-normal: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
     --fs-medium: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
@@ -26,43 +20,36 @@
 }
 
 @layer base {
-    /* Base styles */
     body {
-        background-color: var(--color-light);
-        color: var(--color-dark);
-        font-family: var(--font-primary);
-        line-height: 1.6;
-    }
-
-    /* Typography */
-    h1, h2, h3, h4, h5, h6 {
-        line-height: 1.2;
+        @apply bg-[var(--color-light)] text-[var(--color-dark)] font-[var(--font-primary)] leading-relaxed;
     }
 
     h1 {
-        font-size: var(--fs-xxl);
-        font-weight: 600;
+        @apply text-5xl font-semibold;
+        line-height: 1.2;
     }
 
     h2 {
-        font-size: var(--fs-xl);
-        font-weight: 500;
+        @apply text-4xl font-medium;
+        line-height: 1.2;
     }
 
     h3 {
-        font-size: var(--fs-large);
-        font-weight: 500;
+        @apply text-3xl font-medium;
+        line-height: 1.2;
     }
 
     p {
-        font-weight: 300;
-        line-height: 1.7;
+        @apply font-light leading-relaxed;
+    }
+
+    /* Ensure underlines are consistent across browsers */
+    a {
+        text-decoration: inherit; /* Resets browser default */
     }
 }
 
-/* Add critical above-the-fold styles here */
 @layer critical {
-    /* Hero section critical styles */
     .hero-section {
         min-height: 100vh;
         position: relative;
@@ -73,18 +60,16 @@
     }
 }
 
-/* Component styles */
 @layer components {
-
-    .logo-light {
-        color: var(--color-light) !important;
+    /* Increase specificity */
+    #navbar .logo-light {
+        color: var(--color-light);
     }
 
-    .logo-dark {
-        color: var(--color-dark) !important;
+    #navbar .logo-dark {
+        color: var(--color-dark);
     }
 
-    /* Nav styles */
     .nav-link {
         position: relative;
         transition: color 0.3s ease;
@@ -109,23 +94,22 @@
         transform: translateY(5px);
     }
 
+    /* Combine transition declarations */
+    #mobile-svg,
+    #navbar,
+    .nav-link {
+        transition: all 0.3s ease;
+    }
+
     #mobile-menu {
-        z-index: 40; /* Below navbar's z-50 */
+        z-index: 40;
         transition-property: opacity;
         will-change: opacity;
     }
 
-    #mobile-svg {
-        transition: color 300ms ease;
-    }
-
-    #navbar {
-        transition: background-color 300ms ease;
-    }
-
-    /* Section styles */
     .content-section {
-        @apply my-24 lg:my-36;
+        @apply py-24 lg:py-36;
+        /* Use Tailwind for spacing */
     }
 
     .section-card {
@@ -133,18 +117,9 @@
     }
 }
 
-/* Utilities - for common patterns */
 @layer utilities {
     .font-primary {
         font-family: var(--font-primary), sans-serif;
-    }
-
-    .text-base {
-        font-size: var(--fs-normal);
-    }
-
-    .normal-weight {
-        font-weight: 400;
     }
 
     .image-container {
