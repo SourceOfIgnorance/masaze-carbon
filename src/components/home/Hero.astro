@@ -1,45 +1,42 @@
 ---
-import {heroData} from '../../const/homeData';
+import {Image} from "astro:assets";
+import heroBg from "../../assets/homePage/heroBg.png";
+
+const {
+  title = "Masáže Carbon",
+  subtitle = "Oddýchnite si v rukách skúseného terapeuta a profesionálneho maséra.",
+} = Astro.props;
 ---
 
-<section
-  class="relative overflow-hidden w-full h-screen flex flex-col justify-center items-center"
->
-  <picture class="absolute inset-0">
-    <source
-      srcset="/src/images/homePage/heroBg-800.webp 800w,
-              /src/images/homePage/heroBg-1200.webp 1200w,
-              /src/images/homePage/heroBg-1920.webp 1920w"
-      sizes="100vw"
-      type="image/webp"
+<section class="relative overflow-hidden w-full h-screen flex flex-col justify-center items-center">
+  <!-- Responsive, blurred background image -->
+  <div class="absolute inset-0 -z-10">
+    <Image
+      src={heroBg}
+      alt="Masážne štúdio Carbon - pozadie"
+      fill
+      class="object-cover w-full h-full"
+      placeholder="blur"
+      sizes="(max-width: 640px) 100vw, 1920px"
+      priority
     />
-    <!-- Fallback image -->
-    <img
-      src="/src/images/homePage/heroBg-1200.webp"
-      alt="Hero background"
-      class="w-full h-full object-cover"
-      width="1920"
-      height="1080"
-      fetchpriority="high"
-    />
-  </picture>
-  <div class="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+    <!-- Blurring and dark overlay for readability -->
+    <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+  </div>
+
   <!-- Content -->
   <div class="relative text-center text-[var(--color-light)] z-10">
-    <h1 class="text-2xl md:text-7xl font-bold mb-6 text-shadow-sm">
-      {heroData.title}
-    </h1>
-    <p class="text-xl md:text-xl text-shadow-sm">
-      {heroData.subtitle}
-    </p>
+    <h1 class="text-4xl md:text-6xl font-bold mb-6 text-shadow-sm">{title}</h1>
+    <p class="text-xl md:text-xl text-shadow-sm">{subtitle}</p>
   </div>
 
   <!-- Scroll Indicator -->
-  <div class="absolute bottom-25 flex justify-center items-center">
+  <div class="absolute bottom-12 left-0 right-0 flex justify-center items-center">
     <button
-      class="w-12 h-12 rounded-full bg-[var(--color-light)] flex justify-center items-center cursor-pointer animate-bounce"
-      aria-label="Scroll down"
-      onclick="document.documentElement.scrollTo({top: window.innerHeight, behavior: 'smooth'})"
+      class="w-12 h-12 rounded-full bg-[var(--color-light)] flex justify-center items-center cursor-pointer animate-bounce shadow-lg"
+      aria-label="Prejst ďalej"
+      onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})"
+      type="button"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -49,11 +46,7 @@ import {heroData} from '../../const/homeData';
         stroke="currentColor"
         stroke-width="3"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M19 9l-7 7-7-7"
-        />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
       </svg>
     </button>
   </div>

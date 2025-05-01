@@ -1,13 +1,3 @@
-export const homePageMeta = {
-  title: "Domov - Masáže Carbon"
-};
-
-// Hero component data
-export const heroData = {
-  title: 'Masáže Carbon',
-  subtitle: 'Oddýchnite si v rukách skúseného terapeuta a profesionálneho maséra.'
-};
-
 // Description component data
 export const descriptionData = {
   title: "Komplexná starostlivosť o telo",
