@@ -1,21 +1,5 @@
 
 // FactsSection component data
-export const benefitsData = {
-  title: "Masáž so sebou nesie mnoho benefitov",
-  benefitsTitle: [
-    "Podpora cirkulácie krvi a lymfy\n",
-    "Zlepšenie kvality spánku\n",
-    "Účinná pomoc pri zraneniach\n",
-    "Úľava od psychického napätia\n"
-  ],
-  benefitText: [
-    "Masáže priaznivo ovplyvňujú prekrvenie tela a lymfatický tok, čím napomáhajú lepšiemu okysličeniu a výžive buniek. Vďaka tomu sa zrýchľuje metabolizmus, uvoľňujú sa stuhnuté svaly a telo sa efektívnejšie zbavuje toxínov.",
-    "Masáž pomáha telu prejsť do hlbšieho stavu relaxácie, čo môže pozitívne ovplyvniť spánkový režim. Mnoho ľudí po masáži udáva lepší a kvalitnejší spánok, bez prerušovania.",
-    "Masáže sú často súčasťou rehabilitácie a liečby rôznych fyzických ťažkostí. Uvoľnenie svalových blokád a zlepšenie flexibility kĺbov môže významne prispieť k úľave od chronickej bolesti a urýchliť hojenie po úrazoch.",
-    "Masáže sú prirodzený spôsob, ako si dopriať duševný oddych. Počas masáže dochádza k uvoľňovaniu hormónov dobrej nálady, ako sú endorfíny a serotonín, ktoré znižujú hladinu stresových hormónov a navodzujú pocit pokoja a pohody.",
-  ],
-  bgImage: '/images/movingBg.jpg' // Replace with the actual background image path
-}
 
 // AboutMe component data
 export const aboutMeData = {
