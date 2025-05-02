@@ -1,8 +1,11 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import PricingCategory from "../components/common/PricingCategory.astro";
-import {classicMassages, specialOffers, giftCards} from "../const/serviceData";
 import {pageMetadata} from "../const/pageMetadata";
+import PricingCategory from "../components/common/PricingCategory.astro";
+import { generatePriceListJson } from '../utils/generatePriceListJson.ts';
+import {classicMassages, specialOffers, giftCards} from "../const/serviceData";
+const allServices = [...classicMassages, ...specialOffers, ...giftCards];
+const priceListJson = generatePriceListJson(allServices);
 
 const categories = [
 {
@@ -43,3 +46,5 @@ const categories = [
     </div>
   </div>
 </MainLayout>
+
+<script type="application/ld+json" set:html={JSON.stringify(priceListJson)} />
