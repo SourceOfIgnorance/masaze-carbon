@@ -1,14 +1,14 @@
 import type {ImageMetadata} from "astro";
-import tile3 from '../assets/cards/tile3.webp';
-import tile4 from '../assets/cards/tile4.webp';
-import tile6 from '../assets/cards/tile6.webp';
+import firma from '../assets/cards/masaz-firma.webp';
+import zdarma from '../assets/cards/masaz-zdarma.webp';
+import klasika from '../assets/cards/klasicka-masaz.webp';
 
-import deepCard from '../assets/cards/deepCard.webp'
-import sportCard from '../assets/cards/sportCard.jpg'
-import maderoCard from '../assets/cards/maderoCard.jpg'
-import next from '../assets/cards/next.jpg'
-import cardDoma from '../assets/cards/cardDoma-800.webp'
-import comingSoon from '../assets/cards/comingSoon.png'
+import deepCard from '../assets/cards/hlboka-masaz.webp'
+import sportCard from '../assets/cards/sportova-masaz.jpg'
+import maderoCard from '../assets/cards/madero-masaz.jpg'
+import denMatiek from '../assets/cards/den-matiek.jpg'
+import cardDoma from '../assets/cards/masaz-doma.webp'
+import comingSoon from '../assets/cards/novinky-coskoro.png'
 
 export interface ServiceOption {
   duration: number;
@@ -28,7 +28,7 @@ export interface ServiceItem {
 
 export const classicMassages: ServiceItem[] = [
   {
-    image: tile6,
+    image: klasika,
     name: "Klasická masáž",
     description: "Overená klasika pre uvoľnenie tela aj mysle",
     options: [
@@ -62,7 +62,7 @@ export const classicMassages: ServiceItem[] = [
 
 export const specialOffers: ServiceItem[] = [
   {
-    image: tile3,
+    image: firma,
     name: "Pre firmy",
     description: "“Zdraví a spokojní zamestnanci, lepší výkon na pracovisku”",
     specialInfo: "Dohodou"
@@ -77,13 +77,13 @@ export const specialOffers: ServiceItem[] = [
 
 export const giftCards: ServiceItem[] = [
   {
-    image: tile4,
+    image: zdarma,
     name: "MASÁŽ 1+1 ZDARMA",
     description: "Zdieľajte chvíľu pokoja - jedna masáž pre vás, druhá ako darček pre niekoho výnimočného",
     singlePrice: ""
   },
   {
-    image: next,
+    image: denMatiek,
     name: "DEŇ MATIEK",
     description: "Venujte svojej mame chvíľu čistého oddychu ❤️",
     singlePrice: ""

@@ -1,5 +1,6 @@
 ---
-import GalleryLightbox from './GalleryLightbox.jsx';
+// src/components/gallery/Gallery.astro
+import GalleryLightbox from './GalleryLightbox.astro';
 import GalleryImage from './GalleryImage.astro';
 
 const {images} = Astro.props;
@@ -16,4 +17,4 @@ const processedImages = images.map(img => ({
   ))}
 </div>
 
-<GalleryLightbox images={processedImages} client:load/>
+<GalleryLightbox images={processedImages}/>
