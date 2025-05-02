@@ -34,7 +34,6 @@ const {images} = Astro.props;
     const images = JSON.parse(document.getElementById('imagesData').textContent);
 
     let idx = 0;
-    let open = false;
 
     const updateLightbox = () => {
       lightboxImg.src = images[idx].src;
@@ -42,10 +41,17 @@ const {images} = Astro.props;
       counter.textContent = `${idx + 1} / ${images.length}`;
     };
 
-    closeBtn.addEventListener('click', () => {
+    const openLightbox = (index) => {
+      idx = index;
+      updateLightbox();
+      lightbox.classList.remove('hidden');
+    };
+
+    const closeLightbox = () => {
       lightbox.classList.add('hidden');
-      open = false;
-    });
+    };
+
+    closeBtn.addEventListener('click', closeLightbox);
 
     prevBtn.addEventListener('click', () => {
       idx = (idx - 1 + images.length) % images.length;
@@ -58,11 +64,11 @@ const {images} = Astro.props;
     });
 
     window.addEventListener('open-lightbox', (e) => {
-      idx = e.detail.index;
-      updateLightbox();
-      lightbox.classList.remove('hidden');
-      open = true;
+      openLightbox(e.detail.index);
     });
+
+    // Initially hide the lightbox
+    closeLightbox();
   });
 </script>
 
