@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-    --color-dark: #3A271A;
-    --color-dark-85: rgba(58, 39, 26, 0.85);
-    --color-light: #F1E9DF;
+    --color-dark: #3b3b3b; /* Medium dark grey */
+    --color-dark-85: rgba(59, 59, 59, 0.85);
+    --color-light: #f0f0f0; /* Very pale grey */
     --font-primary: 'Lexend', sans-serif;
 }
 

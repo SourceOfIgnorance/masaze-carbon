@@ -1,13 +1,14 @@
 import type {ImageMetadata} from "astro";
-import tile1 from '../assets/homePage/cards/tile1.webp';
-import tile2 from '../assets/homePage/cards/tile2.webp';
-import tile3 from '../assets/homePage/cards/tile3.webp';
-import tile4 from '../assets/homePage/cards/tile4.webp';
-import tile5 from '../assets/homePage/cards/tile5.webp';
-import tile6 from '../assets/homePage/cards/tile6.webp';
-import tile7 from '../assets/homePage/cards/tile7.webp';
-import tile8 from '../assets/homePage/cards/tile8.webp';
-import tile9 from '../assets/homePage/cards/tile9.webp';
+import tile3 from '../assets/cards/tile3.webp';
+import tile4 from '../assets/cards/tile4.webp';
+import tile6 from '../assets/cards/tile6.webp';
+
+import deepCard from '../assets/cards/deepCard.webp'
+import sportCard from '../assets/cards/sportCard.jpg'
+import maderoCard from '../assets/cards/maderoCard.jpg'
+import next from '../assets/cards/next.jpg'
+import cardDoma from '../assets/cards/cardDoma-800.webp'
+import comingSoon from '../assets/cards/comingSoon.png'
 
 export interface ServiceOption {
   duration: number;
@@ -27,9 +28,9 @@ export interface ServiceItem {
 
 export const classicMassages: ServiceItem[] = [
   {
-    image: tile1,
+    image: tile6,
     name: "Klasická masáž",
-    description: "Krátka masáž pre rýchlu regeneráciu",
+    description: "Overená klasika pre uvoľnenie tela aj mysle",
     options: [
       {duration: 30, price: "€20"},
       {duration: 60, price: "€30", isPopular: true},
@@ -37,16 +38,23 @@ export const classicMassages: ServiceItem[] = [
     ]
   },
   {
-    image: tile2,
+    image: sportCard,
     name: "Športová masáž",
-    description: "Overená klasika pre uvoľnenie tela aj mysle",
+    description: "Vhodná pre aktívnych ľudí pred aj po športovom výkone",
     singleDuration: 60,
     singlePrice: "€40"
   },
   {
-    image: tile3,
+    image: deepCard,
+    name: "Hĺbková masáž",
+    description: "Intenzívne uvoľnenie a regenerácia na odbúranie stresu",
+    singleDuration: 60,
+    singlePrice: "€35"
+  },
+  {
+    image: maderoCard,
     name: "Maderoterapia",
-    description: "Hlboký relax bez kompromisov. Viac času, viac starostlivosti",
+    description: "Formovanie postavy s využitím drevených nástrojov",
     singleDuration: 60,
     singlePrice: "€45"
   },
@@ -54,34 +62,34 @@ export const classicMassages: ServiceItem[] = [
 
 export const specialOffers: ServiceItem[] = [
   {
-    image: tile5,
+    image: tile3,
     name: "Pre firmy",
     description: "“Zdraví a spokojní zamestnanci, lepší výkon na pracovisku”",
     specialInfo: "Dohodou"
   },
   {
-    image: tile6,
+    image: cardDoma,
     name: "U vás doma",
-    description: "“Relax až k vám - Oddýchnite si bez cestovania.”",
+    description: "“Relax až k vám - oddýchnite si bez cestovania.”",
     specialInfo: "Dohodou"
   },
 ];
 
 export const giftCards: ServiceItem[] = [
   {
-    image: tile7,
+    image: tile4,
     name: "MASÁŽ 1+1 ZDARMA",
     description: "Zdieľajte chvíľu pokoja - jedna masáž pre vás, druhá ako darček pre niekoho výnimočného",
     singlePrice: ""
   },
   {
-    image: tile8,
+    image: next,
     name: "DEŇ MATIEK",
-    description: "Venujte svojej mame chvíľu čistého oddychu ♡",
+    description: "Venujte svojej mame chvíľu čistého oddychu ❤️",
     singlePrice: ""
   },
   {
-    image: tile9,
+    image: comingSoon,
     name: "Pripravujeme ďalšie prekvapenia",
     description: "",
     singlePrice: ""
