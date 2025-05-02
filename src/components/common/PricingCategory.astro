@@ -1,0 +1,15 @@
+---
+const {id, title, services} = Astro.props;
+import ServiceItem from './ServiceItem.astro';
+---
+
+<section id={id} class="mb-12 scroll-mt-24">
+  <dt class="text-3xl font-semibold mb-4 text-[var(--color-dark)]">{title}</dt>
+  <dd>
+    <ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {services.map((service) => (
+        <ServiceItem key={service.name} {...service}/>
+      ))}
+    </ul>
+  </dd>
+</section>
