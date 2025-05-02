@@ -13,9 +13,10 @@ import tile9 from '../assets/homePage/cards/tile9.webp'
 export const classicMassages = [
   {
     image: tile1,
-    alt: "Klaiscká masáž",
-    name: "Klaiscká masáž",
+    alt: "Klasická masáž",
+    name: "Klasická masáž",
     price: ["€20", "€30", "€45"],
+    duration: [30, 60, 90],
     description: "Krátka masáž pre rýchlu regeneráciu",
   },
   {
@@ -23,6 +24,7 @@ export const classicMassages = [
     alt: "Športová masáž",
     name: "Športová masáž",
     price: "€40",
+    duration: 60,
     description: "Overená klasika pre uvoľnenie tela aj mysle",
   },
   {
@@ -30,6 +32,7 @@ export const classicMassages = [
     alt: "Maderoterapia",
     name: "Maderoterapia",
     price: "€45",
+    duration: 60,
     description: "Hlboký relax bez kompromisov. Viac času, viac starostlivosti",
   },
   // {
@@ -74,7 +77,7 @@ export const giftCards = [
   {
     image: tile9,
     alt: "Budúce prekvapenia",
-    name: "Pripravujeme ďaľšie prekvapenie",
+    name: "Pripravujeme ďalšie prekvapenia",
     price: "",
     description: "",
   },

@@ -1,80 +1,38 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import ServiceGridSection from "../components/common/ServiceGridSection.astro";
-import {classicMassages, giftCards, specialOffers} from "../const/serviceData";
-import {pageMetadata} from "../const/pageMetadata";
-import TransparentBox from "../components/common/TransparentBox.astro";
+import PricingTable from "../components/common/PricingTable.astro";
+import {classicMassages, specialOffers, giftCards} from "../const/serviceData";
 
-export const servicePageHeadings = {
-  classicMassages: {
-    heading: "Masážne služby",
-    description: "Vy rozhodujete, my sa prispôsobíme. Ponúkame masáže v dĺžkach 30, 60 a 90 minút.\n" +
-      "Masáž je o vás – a podľa toho ju aj nastavíme. Sami si určíte, čo vaše telo potrebuje – zameriame sa na konkrétnu oblasť, spojíme viacero techník alebo vytvoríme relaxačný celok. "
+const categories = [
+  {
+    id: "massage",
+    title: "Masážne služby",
+    services: classicMassages
   },
-  specialOffers: {
-    heading: "Špeciálne Ponuky",
-    description: "Masáže pre firmy alebo v pohodlí u vás doma.\n" +
-      "Doprajte si profesionálnu masáž tam, kde vám to najviac vyhovuje. Či už chcete zlepšiť pohodu svojich zamestnancov priamo na pracovisku, alebo si oddýchnuť v pohodlí domova – ponúkam riešenie šité na mieru. " +
-      "Masáž bez stresu z presunov, s dôrazom na kvalitu, komfort a osobný prístup.\n"
+  {
+    id: "special",
+    title: "Špeciálne ponuky",
+    services: specialOffers
   },
-  giftCards: {
-    heading: "Darčekové poukazy",
-    description: "",
-  },
-};
+  {
+    id: "gift",
+    title: "Darčekové poukazy",
+    services: giftCards
+  }
+];
 ---
 
-<MainLayout title={pageMetadata.cennik.title} description={pageMetadata.cennik.description}>
-  <div class="relative min-h-screen overflow-hidden">
-    <!-- Hero Section -->
-      <div class="relative pt-32 pb-18 container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold">Cenník</h1>
-      </div>
-
-    <div class="space-y-12">
-      <!-- Masážne služby Section -->
-      <div>
-        <!-- TransparentBox Heading Section -->
-        <TransparentBox heading={servicePageHeadings.classicMassages.heading}
-                        description={servicePageHeadings.classicMassages.description}/>
-
-        <!-- Service tiles section -->
-        <div class="container mx-auto px-4 py-8 pb-32">
-          <ServiceGridSection
-            heading={servicePageHeadings.classicMassages.heading}
-            descriptionSection={servicePageHeadings.classicMassages.description}
-            services={classicMassages}
-          />
-        </div>
-      </div>
-
-      <!-- Špeciálne Ponuky Section -->
-      <div>
-        <TransparentBox heading={servicePageHeadings.specialOffers.heading}
-                        description={servicePageHeadings.specialOffers.description}/>
-
-        <div class="container mx-auto px-4 py-8 pb-32">
-          <ServiceGridSection
-            heading={servicePageHeadings.specialOffers.heading}
-            descriptionSection={servicePageHeadings.specialOffers.description}
-            services={specialOffers}
-          />
-        </div>
-      </div>
-
-      <!-- Darčekové poukážky -->
-      <div>
-        <TransparentBox heading={servicePageHeadings.giftCards.heading}
-                        description={servicePageHeadings.giftCards.description}/>
-
-        <div class="container mx-auto px-4 py-8 pb-32">
-          <ServiceGridSection
-            heading={servicePageHeadings.giftCards.heading}
-            descriptionSection={servicePageHeadings.giftCards.description}
-            services={giftCards}
-          />
-        </div>
-      </div>
+<MainLayout title="Cenník | Masáže Carbon" description="Kompletný cenník masážnych služieb">
+  <div class="pt-32 pb-16">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12 text-[var(--color-dark)]">Cenník</h1>
+      {categories.map((category) => (
+        <PricingTable
+          key={category.id}
+          categoryTitle={category.title}
+          services={category.services}
+        />
+      ))}
     </div>
   </div>
 </MainLayout>

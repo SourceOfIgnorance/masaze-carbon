@@ -9,9 +9,10 @@
 
 /* Theme 1: Grey Variant 1 */
 .theme-default {
-    --color-dark: #4a4a4a; /* Dark grey */
-    --color-dark-85: rgba(74, 74, 74, 0.85);
-    --color-light: #dcdcdc; /* Light grey */
+    --color-dark: #3b3b3b; /* Medium dark grey */
+    --color-dark-85: rgba(59, 59, 59, 0.85);
+    --color-light: #f0f0f0; /* Very pale grey */
+
 }
 
 /* Theme 2: Grey Variant 2 */
@@ -23,9 +24,9 @@
 
 /* Theme 3: Grey Variant 3 */
 .theme-bluegray {
-    --color-dark: #3b3b3b; /* Medium dark grey */
-    --color-dark-85: rgba(59, 59, 59, 0.85);
-    --color-light: #f0f0f0; /* Very pale grey */
+    --color-dark: #4a4a4a; /* Dark grey */
+    --color-dark-85: rgba(74, 74, 74, 0.85);
+    --color-light: #dcdcdc; /* Light grey */
 }
 
 /* Theme 4: Grey Variant 4 */
@@ -151,20 +152,13 @@
     }
 }
 
-/* Smooth transitions */
-.service-card {
-    transition: transform 0.3s ease, box-shadow 0.2s ease;
-}
+@media (max-width: 640px) {
+    .service-row td, .service-option-row td {
+        padding: 0.75rem 0.5rem;
+    }
 
-/* Focus states */
-.service-card:focus-within {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
-}
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .service-card {
-        transition: none;
+    .service-option-row td {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
     }
 }
