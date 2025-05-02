@@ -1,4 +1,3 @@
-// Page titles and descriptions for all pages
 export const pageMetadata = {
   home: {
     title: "Domov - Masáže Carbon",

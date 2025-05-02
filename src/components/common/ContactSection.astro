@@ -125,8 +125,6 @@ export const mapIframeSrc =
       return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
-    console.log(isMobile());
-
     document.addEventListener("DOMContentLoaded", () => {
       const popup = document.getElementById("copy-popup");
       const copyables = document.querySelectorAll("[data-copy]");

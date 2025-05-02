@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import PricingCategory from "../components/common/PricingCategory.astro";
 import {classicMassages, specialOffers, giftCards} from "../const/serviceData";
+import {pageMetadata} from "../const/pageMetadata";
 
 const categories = [
 {
@@ -23,8 +24,8 @@ const categories = [
 ---
 
 <MainLayout
-  title="Cenník | Masáže Carbon"
-  description="Kompletný cenník masážnych služieb"
+  title={pageMetadata.cennik.title}
+  description={pageMetadata.cennik.description}
 >
   <div class="pt-32 pb-16">
     <div class="container mx-auto px-4 max-w-5xl">

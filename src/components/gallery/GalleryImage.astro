@@ -1,0 +1,29 @@
+---
+import {Image} from 'astro:assets';
+const {src, alt, index} = Astro.props;
+---
+
+<button
+  type="button"
+  class="block w-full aspect-square overflow-hidden rounded-lg shadow hover:shadow-lg transition gallery-image-btn"
+  data-index={index}
+  aria-label={`Zobraziť ${alt}`}
+>
+  <Image src={src} alt={alt} class="object-cover w-full h-full"/>
+</button>
+
+<script>
+  // This script runs in the browser
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.gallery-image-btn');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const index = parseInt(button.getAttribute('data-index'), 10);
+        window.dispatchEvent(new CustomEvent('open-lightbox', {
+          detail: {index}
+        }));
+      });
+    });
+  });
+</script>

@@ -1,0 +1,19 @@
+---
+import GalleryLightbox from './GalleryLightbox.jsx';
+import GalleryImage from './GalleryImage.astro';
+
+const {images} = Astro.props;
+
+const processedImages = images.map(img => ({
+  src: typeof img.src === 'string' ? img.src : img.src.src,
+  alt: img.alt
+}));
+---
+
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+  {images.map((img, i) => (
+    <GalleryImage src={img.src} alt={img.alt} index={i}/>
+  ))}
+</div>
+
+<GalleryLightbox images={processedImages} client:load/>
