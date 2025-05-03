@@ -1,0 +1,59 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const title = "Zásady ochrany osobných údajov a cookies";
+const description = "Informácie o používaní cookies a ochrane osobných údajov na stránke Masáže Carbon.";
+import {pageMetadata} from "../const/pageMetadata"
+---
+
+<MainLayout title={pageMetadata.privacyPolicy.title} description={pageMetadata.privacyPolicy.description}>
+  <div class="pt-32 pb-16">
+    <div class="container mx-auto px-4 max-w-5xl bg-white rounded-lg shadow-md p-8">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12 text-[var(--color-dark)]">
+        {title}
+      </h1>
+
+      <p class="text-lg text-gray-700 mb-6">
+        Vaše súkromie je pre nás dôležité. Táto stránka používa iba nevyhnutné cookies potrebné pre správne fungovanie
+        webu a Google Maps cookies,
+        ktoré sa ukladajú iba po vašom výslovnom súhlase.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4">Čo sú cookies?</h2>
+      <p class="text-gray-700 mb-6">
+        Cookies sú malé textové súbory, ktoré sa ukladajú vo vašom zariadení pri návšteve webovej stránky. Pomáhajú
+        zlepšiť funkčnosť a používateľský zážitok.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4">Používané cookies</h2>
+      <ul class="list-disc list-inside text-gray-700 mb-6 space-y-3">
+        <li>
+          <strong>Nevyhnutné cookies:</strong> Tieto cookies sú nevyhnutné pre základné fungovanie webu (napr.
+          navigácia, bezpečnosť). Tieto cookies sú vždy aktívne a nie je možné ich vypnúť.
+        </li>
+        <li>
+          <strong>Google Maps cookies:</strong> Tieto cookies sa používajú na zobrazenie Google máp na našej stránke.
+          Ukladajú sa iba po vašom súhlase a môžu spracovávať osobné údaje podľa zásad Google.
+          <br/>
+          Viac informácií nájdete na&nbsp;
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"
+             class="underline text-blue-600">
+            zásadách ochrany osobných údajov Google
+          </a>.
+        </li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4">Ako spravovať cookies?</h2>
+      <p class="text-gray-700 mb-6">
+        Pri prvej návšteve stránky vás požiadame o súhlas so spracovaním cookies. Súhlas môžete kedykoľvek zmeniť alebo
+        odvolať pomocou tlačidla „Spravovať cookies“ v pravom dolnom rohu stránky.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-8 mb-4">Kontakt</h2>
+      <p class="text-gray-700">
+        Ak máte otázky týkajúce sa ochrany osobných údajov, môžete nás kontaktovať na e-mail:&nbsp;
+        <a href="mailto:masaze.carbon@gmail.com" class="underline text-blue-600">masaze.carbon@gmail.com</a>.
+      </p>
+    </div>
+  </div>
+</MainLayout>

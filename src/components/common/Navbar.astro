@@ -210,6 +210,10 @@ const navData = [
     if (darkBg) {
       logo.classList.add("logo-light");
       logo.classList.remove("logo-dark");
+      orderButton.classList.add("bg-[var(--color-light)]", !isHomePage);
+      orderButton.classList.remove("bg-[var(--color-dark)]", !isHomePage);
+      orderButton.classList.add("text-[var(--color-dark)]", !isHomePage);
+      orderButton.classList.remove("text-[var(--color-light)]", !isHomePage);
     } else {
       logo.classList.toggle("logo-light", isHomePage);
       logo.classList.toggle("logo-dark", !isHomePage);

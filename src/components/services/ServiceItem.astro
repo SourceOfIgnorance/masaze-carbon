@@ -5,45 +5,49 @@ import ClockIcon from "../icons/Clock.astro";
 const {image, name, description, options, singlePrice, singleDuration, specialInfo} = Astro.props;
 ---
 
-<li class="bg-white rounded-lg shadow-md overflow-hidden">
-  <article>
+<li class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full">
+  <article class="flex flex-col flex-grow">
     <Image
       src={image}
       alt={name}
       width={400}
       height={400}
-      class="rounded-t-lg object-cover w-full h-32"
+      class="rounded-t-lg object-cover w-full h-32 flex-shrink-0"
     />
-    <div class="p-4">
+    <div class="p-4 flex flex-col flex-grow">
       <h3 class="font-bold text-lg text-[var(--color-dark)] mb-2">{name}</h3>
       {description && <p class="text-gray-600 text-sm mb-3">{description}</p>}
-      {options && (
-        <div class="mb-3">
-          {options.map((option, index) => (
-            <div key={index} class="flex items-center justify-between text-sm">
-              <div class="flex items-center">
-                <ClockIcon class="w-4 h-4 mr-1 text-gray-500"/>
-                <span>{option.duration} min</span>
+
+      {/* Spacer pushes price list down */}
+      <div class="mt-auto">
+        {options && (
+          <div class="mb-3">
+            {options.map((option, index) => (
+              <div key={index} class="flex items-center justify-between text-sm">
+                <div class="flex items-center">
+                  <ClockIcon class="w-4 h-4 mr-1 text-gray-500"/>
+                  <span>{option.duration} min</span>
+                </div>
+                <span class="font-semibold">{option.price}</span>
               </div>
-              <span class="font-semibold">{option.price}</span>
-            </div>
-          ))}
-        </div>
-      )}
-      {singlePrice && singleDuration && (
-        <div class="flex items-center justify-between text-sm mb-3">
-          <div class="flex items-center">
-            <ClockIcon class="w-4 h-4 mr-1 text-gray-500"/>
-            <span>{singleDuration} min</span>
+            ))}
           </div>
-          <span class="font-semibold">{singlePrice}</span>
-        </div>
-      )}
-      {specialInfo && (
-        <div class="text-sm text-gray-500">
-          Cena: <span class="font-semibold">{specialInfo}</span>
-        </div>
-      )}
+        )}
+        {singlePrice && singleDuration && (
+          <div class="flex items-center justify-between text-sm mb-3">
+            <div class="flex items-center">
+              <ClockIcon class="w-4 h-4 mr-1 text-gray-500"/>
+              <span>{singleDuration} min</span>
+            </div>
+            <span class="font-semibold">{singlePrice}</span>
+          </div>
+        )}
+        {specialInfo && (
+          <div class="text-sm text-gray-500">
+            Cena: <span class="font-semibold">{specialInfo}</span>
+          </div>
+        )}
+      </div>
     </div>
   </article>
 </li>

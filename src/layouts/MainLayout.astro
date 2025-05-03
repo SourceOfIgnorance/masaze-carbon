@@ -4,7 +4,7 @@ import LoadingScreen from "../components/common/LoadingScreen.astro";
 import Footer from "../components/common/Footer.astro";
 import ContactSection from "../components/common/ContactSection.astro";
 import Navbar from "../components/common/Navbar.astro";
-
+import Cookies from "../components/common/Cookies.astro";
 const {title = 'Masáže Carbon', description = "Profesionálne masážne služby"} = Astro.props;
 ---
 
@@ -37,13 +37,14 @@ const {title = 'Masáže Carbon', description = "Profesionálne masážne služb
 <LoadingScreen/>
 <Navbar/>
 <main class="flex-grow">
-  <slot/>
+  <slot></slot>
 </main>
 <ContactSection/>
 <Footer/>
+<Cookies/>
 
-<script>
-  document.documentElement.classList.add('fonts-loaded');
-</script>
+<script is:inline>document.documentElement.classList.add('fonts-loaded');</script>
+<script is:inline src="/cookie-consent-script.js"></script>
+
 </body>
 </html>

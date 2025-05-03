@@ -1,14 +1,37 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { pageMetadata } from "../const/pageMetadata";
+import {pageMetadata} from "../const/pageMetadata";
+
+import {galleryImages} from "../const/galleryData";
+const budova = galleryImages[6];
+import {Image} from "astro:assets";
 ---
 
-<MainLayout 
-  title={pageMetadata.kontakt.title} 
+<MainLayout
+  title={pageMetadata.kontakt.title}
   description={pageMetadata.kontakt.description}
 >
-  <div class="container mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold mb-8">Kontakt</h1>
-    <!-- Contact content will go here -->
+  <div class="pt-32 pb-16">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-center mb-12 text-[var(--color-dark)]">
+        Kontakt
+      </h1>
+      <p class="text-lg text-center mb-8">
+        Pre našich zákazníkov poanúkame pohodlné parkovanie priamo vo dvore areálu Carbon.
+      </p>
+      <p class="text-lg text-center mb-8">
+        Využiť môžete aj <b>bezplatné</b> parkovanie pod nadjazdom. Nájdete nás jednoducho - sídlime na <strong>prvom
+        poschodí</strong> budovy. Tešíme sa na vašu návštevu!
+      </p>
+      <div class="shadow-lg max-w-full md:max-w-[60vw] mx-auto">
+        <Image
+          src={budova.src}
+          alt={budova.alt}
+          class="object-cover w-full h-auto"
+          widths={[400, 800, 1200, 1600]}
+          sizes="(min-width: 768px) 60vw, 100vw"
+        />
+      </div>
+    </div>
   </div>
 </MainLayout>

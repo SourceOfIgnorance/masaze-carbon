@@ -17,8 +17,7 @@ export const openUntil = "20:00"
 
 export const address = `${businessName}, ${streetAddress}, ${postalCode} ${addressLocality}`;
 export const directions = "Nachádzame sa na 1. poschodí v budove Carbon.";
-export const mapIframeSrc =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d165.03647136594418!2d18.165796606608236!3d48.5603713259538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b4b0063373029%3A0x7124fd43d1696af1!2zTWFzw6HFvmUgQ2FyYm9u!5e0!3m2!1sen!2ssk!4v1745959330335!5m2!1sen!2ssk";
+
 
 // Create LocalBusiness schema
 const localBusinessSchema = {
@@ -164,19 +163,24 @@ const localBusinessSchema = {
       </address>
 
       <!-- Map -->
-      <div class="rounded-xl overflow-hidden shadow-md h-full min-h-[450px]">
-        <iframe
-          src={mapIframeSrc}
-          width="100%"
-          height="450"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Mapa Masáže Carbon Topoľčany"
-          class="w-full h-full"
-        ></iframe>
+      <div id="google-map-container" class="rounded-xl overflow-hidden shadow-lg h-full min-h-[450px]">
+        <span id="show-map" style="padding:1em;">
+          Mapa sa zobrazí po udelení súhlasu s cookies.
+        </span>
       </div>
+      <!--<div class="rounded-xl overflow-hidden shadow-lg h-full min-h-[450px]">-->
+      <!--  <iframe-->
+      <!--    src={mapIframeSrc}-->
+      <!--    width="100%"-->
+      <!--    height="450"-->
+      <!--    style="border:0;"-->
+      <!--    allowfullscreen=""-->
+      <!--    loading="lazy"-->
+      <!--    referrerpolicy="no-referrer-when-downgrade"-->
+      <!--    title="Mapa Masáže Carbon Topoľčany"-->
+      <!--    class="w-full h-full"-->
+      <!--  ></iframe>-->
+      <!--</div>-->
     </div>
   </div>
 

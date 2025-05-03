@@ -18,5 +18,9 @@ export const pageMetadata = {
   kontakt: {
     title: "Kontakt - Masáže Carbon",
     description: "Kontaktné informácie a lokalita masážneho salónu"
-  }
+  },
+  privacyPolicy: {
+    title: "Privacy and Policy - Masáže Carbon",
+    description: "Zásady ochrany osobných údajov a cookies"
+  },
 };
