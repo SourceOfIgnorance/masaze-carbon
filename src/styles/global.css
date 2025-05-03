@@ -7,34 +7,34 @@
     --font-primary: 'Lexend', sans-serif;
 }
 
-/* Theme 1: Grey Variant 1 */
-.theme-default {
-    --color-dark: #3b3b3b; /* Medium dark grey */
-    --color-dark-85: rgba(59, 59, 59, 0.85);
-    --color-light: #f0f0f0; /* Very pale grey */
+/*!* Theme 1: Grey Variant 1 *!*/
+/*.theme-default {*/
+/*    --color-dark: #3b3b3b; !* Medium dark grey *!*/
+/*    --color-dark-85: rgba(59, 59, 59, 0.85);*/
+/*    --color-light: #f0f0f0; !* Very pale grey *!*/
 
-}
+/*}*/
 
-/* Theme 2: Grey Variant 2 */
-.theme-gray {
-    --color-dark: #2f2f2f; /* Darker grey */
-    --color-dark-85: rgba(47, 47, 47, 0.85);
-    --color-light: #e6e6e6; /* Very light grey */
-}
+/*!* Theme 2: Grey Variant 2 *!*/
+/*.theme-gray {*/
+/*    --color-dark: #2f2f2f; !* Darker grey *!*/
+/*    --color-dark-85: rgba(47, 47, 47, 0.85);*/
+/*    --color-light: #e6e6e6; !* Very light grey *!*/
+/*}*/
 
-/* Theme 3: Grey Variant 3 */
-.theme-bluegray {
-    --color-dark: #4a4a4a; /* Dark grey */
-    --color-dark-85: rgba(74, 74, 74, 0.85);
-    --color-light: #dcdcdc; /* Light grey */
-}
+/*!* Theme 3: Grey Variant 3 *!*/
+/*.theme-bluegray {*/
+/*    --color-dark: #4a4a4a; !* Dark grey *!*/
+/*    --color-dark-85: rgba(74, 74, 74, 0.85);*/
+/*    --color-light: #dcdcdc; !* Light grey *!*/
+/*}*/
 
-/* Theme 4: Grey Variant 4 */
-.theme-purplegray {
-    --color-dark: #383838; /* Slightly lighter dark grey */
-    --color-dark-85: rgba(56, 56, 56, 0.85);
-    --color-light: #e8e8e8; /* Soft light grey */
-}
+/*!* Theme 4: Grey Variant 4 *!*/
+/*.theme-purplegray {*/
+/*    --color-dark: #383838; !* Slightly lighter dark grey *!*/
+/*    --color-dark-85: rgba(56, 56, 56, 0.85);*/
+/*    --color-light: #e8e8e8; !* Soft light grey *!*/
+/*}*/
 
 @layer base {
     body {

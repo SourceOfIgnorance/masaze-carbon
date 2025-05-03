@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import {pageMetadata} from "../const/pageMetadata";
-import PricingCategory from "../components/common/PricingCategory.astro";
+import PricingCategory from "../components/services/PricingCategory.astro";
 import { generatePriceListJson } from '../utils/generatePriceListJson.ts';
 import {classicMassages, specialOffers, giftCards} from "../const/serviceData";
 const allServices = [...classicMassages, ...specialOffers, ...giftCards];

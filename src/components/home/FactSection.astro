@@ -56,7 +56,7 @@ const benefitsData = {
     </div>
 
     {/* Shadow and Expand Button (mobile only, and only when collapsed) */}
-    <div class="p-1">
+    <div id="fact-shadow" class="p-1 sm:hidden" style="(transition: opacity 0.3s)">
       <button
         id="benefits-expand"
         class="mx-auto mb-2 w-8 h-8 rounded-full flex items-center justify-center bg-[var(--color-light)] shadow cursor-pointer border border-[var(--color-dark)]"
@@ -74,11 +74,16 @@ const benefitsData = {
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const grid = document.getElementById('benefits-grid');
+      const factShadow = document.getElementById('fact-shadow');
       const expandBtn = document.getElementById('benefits-expand');
       if (!grid || !expandBtn) return;
 
       expandBtn.addEventListener('click', () => {
         grid.classList.remove('max-h-96', 'overflow-hidden');
+        factShadow.style.opacity = '0';
+        setTimeout(() => {
+          factShadow.style.display = 'none';
+        }, 300); // match transition duration
       });
     });
   </script>

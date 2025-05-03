@@ -1,6 +1,8 @@
 ---
 import {Image} from "astro:assets";
-import heroBg from "../../assets/homePage/masirovanie-zeny-titulka.png";
+// import heroBg1 from "../../assets/homePage/masirovanie-zeny-titulka.png";
+import heroBg2 from "../../assets/homePage/masazny-priestor-titulka-1.jpeg";
+import heroBg3 from "../../assets/homePage/masazny-priestor-titulka-2.jpeg";
 
 const {
   title = "Masáže Carbon",
@@ -11,11 +13,11 @@ const {
 <section class="relative overflow-hidden w-full h-screen flex flex-col justify-center items-center">
   <!-- Responsive, blurred background image -->
   <div class="absolute inset-0 -z-10">
-    <Image
-      src={heroBg}
+    <Image id="hero-image"
+      src={heroBg3}
       alt="Masážne štúdio Carbon - pozadie"
       fill
-      class="object-cover w-full h-full"
+      class="object-cover object-left w-full h-full"
       placeholder="blur"
       sizes="(max-width: 640px) 100vw, 1920px"
       priority
@@ -27,11 +29,11 @@ const {
   <!-- Content -->
   <div class="relative text-center text-[var(--color-light)] z-10">
     <h1 class="text-4xl md:text-6xl font-bold mb-6 text-shadow-sm">{title}</h1>
-    <p class="text-xl md:text-xl text-shadow-sm">{subtitle}</p>
+    <p class="text-xl md:text-xl text-shadow-sm mx-6">{subtitle}</p>
   </div>
 
   <!-- Scroll Indicator -->
-  <div class="absolute bottom-12 left-0 right-0 flex justify-center items-center">
+  <div class="absolute bottom-24 left-0 right-0 flex justify-center items-center">
     <button
       class="w-12 h-12 rounded-full bg-[var(--color-light)] flex justify-center items-center cursor-pointer animate-bounce shadow-lg"
       aria-label="Prejst ďalej"

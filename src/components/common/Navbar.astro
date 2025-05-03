@@ -100,14 +100,15 @@ const navData = [
         >
           Objednať
         </button>
-        <button
-          id="color-toggle"
-          class="p-2 bg-[var(--color-light)] text-[var(--color-dark)] rounded shadow"
-          aria-label="Switch color theme"
-          type="button"
-        >
-          Zmeniť farbu
-        </button>
+        <!--Change color button-->
+        <!--<button-->
+        <!--  id="color-toggle"-->
+        <!--  class="p-2 bg-[var(&#45;&#45;color-light)] text-[var(&#45;&#45;color-dark)] rounded shadow"-->
+        <!--  aria-label="Switch color theme"-->
+        <!--  type="button"-->
+        <!--&gt;-->
+        <!--  Zmeniť farbu-->
+        <!--</button>-->
       </div>
 
       <!-- Mobile Hamburger Button -->
@@ -161,43 +162,20 @@ const navData = [
           Objednať
         </button>
       </li>
-      <li>
-        <button
-          id="mobile-color-toggle"
-          class="w-full p-2 bg-[var(--color-light)] text-[var(--color-dark)] rounded shadow"
-          aria-label="Switch color theme"
-          type="button"
-        >
-          Zmeniť farbu
-        </button>
-      </li>
+      <!--Change color button-->
+      <!--<li>-->
+      <!--  <button-->
+      <!--    id="mobile-color-toggle"-->
+      <!--    class="w-full p-2 bg-[var(&#45;&#45;color-light)] text-[var(&#45;&#45;color-dark)] rounded shadow"-->
+      <!--    aria-label="Switch color theme"-->
+      <!--    type="button"-->
+      <!--  >-->
+      <!--    Zmeniť farbu-->
+      <!--  </button>-->
+      <!--</li>-->
     </ul>
   </div>
 </nav>
-<div id="color-palette-popup"
-     class="fixed top-24 right-4 z-50 bg-white rounded-xl shadow-lg border border-gray-200 p-4 flex flex-col space-y-2 opacity-0 pointer-events-none transition-opacity duration-300"
-     style="min-width: 180px;">
-  <button class="palette-btn flex items-center space-x-2 w-full py-1 px-2 rounded hover:bg-gray-100 transition"
-          data-theme="theme-default">
-    <span class="inline-block w-5 h-5 rounded-full" style="background:#3A271A"></span>
-    <span class="text-sm">Šedá 1</span>
-  </button>
-  <button class="palette-btn flex items-center space-x-2 w-full py-1 px-2 rounded hover:bg-gray-100 transition"
-          data-theme="theme-gray">
-    <span class="inline-block w-5 h-5 rounded-full" style="background:#23272f"></span>
-    <span class="text-sm">Šedá 2</span>
-  </button>
-  <button class="palette-btn flex items-center space-x-2 w-full py-1 px-2 rounded hover:bg-gray-100 transition"
-          data-theme="theme-bluegray">
-    <span class="inline-block w-5 h-5 rounded-full" style="background:#232d3b"></span>
-    <span class="text-sm">Šedá 3</span>
-  </button>
-  <button class="palette-btn flex items-center space-x-2 w-full py-1 px-2 rounded hover:bg-gray-100 transition"
-          data-theme="theme-purplegray">
-    <span class="inline-block w-5 h-5 rounded-full" style="background:#2b2538"></span>
-    <span class="text-sm">Šedá 4</span>
-  </button>
-</div>
 
 <script type="module">
   const navbar = document.getElementById("navbar");
@@ -206,6 +184,7 @@ const navData = [
   const mobileMenuButton = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
   const mobileSvg = document.getElementById("mobile-svg");
+  const orderButton = document.getElementById("order-button");
   const currentPath = window.location.pathname;
 
   // Helper to add/remove classes based on condition
@@ -234,6 +213,10 @@ const navData = [
     } else {
       logo.classList.toggle("logo-light", isHomePage);
       logo.classList.toggle("logo-dark", !isHomePage);
+      orderButton.classList.toggle("bg-[var(--color-light)]", isHomePage);
+      orderButton.classList.toggle("text-[var(--color-dark)]", isHomePage);
+      orderButton.classList.toggle("bg-[var(--color-dark)]", !isHomePage);
+      orderButton.classList.toggle("text-[var(--color-light)]", !isHomePage);
     }
 
     // Nav links color
@@ -298,73 +281,7 @@ const navData = [
     });
   });
 
-  // Theme toggle buttons
-  [
-    document.getElementById("color-toggle"),
-    document.getElementById("mobile-color-toggle"),
-  ].filter(Boolean).forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.documentElement.classList.toggle("theme-alt");
-    });
-  });
-
   // Initialize and update on scroll
   updateNavbar();
   window.addEventListener("scroll", updateNavbar);
-
-  // Color palette popup logic
-  const colorToggleButtons = [
-    document.getElementById("color-toggle"),
-    document.getElementById("mobile-color-toggle"),
-  ].filter(Boolean);
-
-
-  const palettePopup = document.getElementById("color-palette-popup");
-  const paletteBtns = palettePopup.querySelectorAll(".palette-btn");
-
-  function showPalettePopup() {
-    palettePopup.style.opacity = "1";
-    palettePopup.style.pointerEvents = "auto";
-  }
-
-  function hidePalettePopup() {
-    palettePopup.style.opacity = "0";
-    palettePopup.style.pointerEvents = "none";
-  }
-
-  // Show popup on color-toggle click
-  colorToggleButtons.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (palettePopup.style.opacity === "1") {
-        hidePalettePopup();
-      } else {
-        showPalettePopup();
-      }
-    });
-  });
-
-  // Hide popup when clicking outside
-  document.addEventListener("click", (e) => {
-    if (!palettePopup.contains(e.target) && palettePopup.style.opacity === "1") {
-      hidePalettePopup();
-    }
-  });
-
-  // Switch theme on palette button click
-  paletteBtns.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      const theme = btn.getAttribute("data-theme");
-      // Remove all theme classes
-      document.documentElement.classList.remove(
-        "theme-default", "theme-alt", "theme-gray", "theme-bluegray", "theme-purplegray"
-      );
-      document.documentElement.classList.add(theme);
-      hidePalettePopup();
-    });
-  });
-
-  // Set default theme on load
-  document.documentElement.classList.add("theme-default");
-
 </script>
