@@ -9,6 +9,7 @@ import maderoCard from '../assets/cards/madero-masaz.jpg'
 import denMatiek from '../assets/cards/den-matiek.jpg'
 import cardDoma from '../assets/cards/masaz-doma.webp'
 import comingSoon from '../assets/cards/novinky-coskoro.png'
+import darcekovyPoukaz from '../assets/cards/darcekovy-pukaz.jpg'
 
 export interface ServiceOption {
   duration: number;
@@ -88,12 +89,6 @@ export const specialOffers: ServiceItem[] = [
     description: "“Relax až k vám - oddýchnite si bez cestovania.”",
     specialInfo: "Dohodou"
   },
-  {
-    image: cardDoma,
-    name: "U vás doma",
-    description: "“Relax až k vám - oddýchnite si bez cestovania.”",
-    specialInfo: "Dohodou"
-  },
 ];
 
 export const giftCards: ServiceItem[] = [
@@ -105,8 +100,14 @@ export const giftCards: ServiceItem[] = [
   },
   {
     image: denMatiek,
-    name: "DEŇ MATIEK",
+    name: "DEŇ MATIEK | ZĽAVA -30%",
     description: "Venujte svojej mame chvíľu čistého oddychu ❤️",
+    singlePrice: ""
+  },
+  {
+    image: darcekovyPoukaz,
+    name: "DARČEKOVÝ POUKAZ NA MASÁŽ",
+    description: "Darujte relax – 60 minút oddychu! Ideálny darček",
     singlePrice: ""
   },
   {

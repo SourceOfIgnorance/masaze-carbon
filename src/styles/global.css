@@ -162,3 +162,58 @@
         padding-bottom: 0.25rem;
     }
 }
+
+.sale-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip {
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: #333;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 50;
+}
+
+.sale-container:hover .tooltip,
+.sale-container:focus-within .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.tooltip p {
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.tooltip .highlight {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#sale-badge {
+    /* Default colors */
+    --sale-badge-bg: var(--color-dark);
+    --sale-badge-text: var(--color-light);
+    transition: --sale-badge-bg 0.3s ease,
+    --sale-badge-text 0.3s ease;
+}
+
+#sale-badge.badge-invert {
+    /* Inverted colors */
+    --sale-badge-bg: var(--color-light);
+    --sale-badge-text: var(--color-dark);
+}

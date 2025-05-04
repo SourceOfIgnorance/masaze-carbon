@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Cookie consent script loaded");
-
   const banner = document.getElementById("cookie-banner");
   const manageBtn = document.getElementById("manage-cookies-btn");
   const modal = document.getElementById("cookie-preferences-modal");
@@ -138,6 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
     updateMap();
     updateManageButtonVisibility(); // Add this
   });
+
+  updateManageButtonVisibility();
 
   // Initialize map on page load if consent given
   updateMap();

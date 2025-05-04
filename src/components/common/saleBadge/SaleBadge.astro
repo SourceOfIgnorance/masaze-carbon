@@ -1,0 +1,21 @@
+---
+import SaleBadgeIcon from '../../icons/SaleBadge.astro';
+---
+
+
+<div class="sale-container" tabindex="0" aria-describedby="sale-tooltip">
+  <SaleBadgeIcon width={48} height={48} aria-hidden="true"/>
+  <a href="/cennik" class="btn-link" aria-label="Viac o akciách">
+    <div class="tooltip" role="tooltip" id="sale-tooltip">
+      <p class="highlight">Aktuálne zľavy na masáže!</p>
+      <p>Špeciálne akcie:<br/>
+        🌿 1+1 zdarma<br/>
+        Objednajte sa na masáž a získajte ďalšiu masáž zdarma pre blízku osobu.
+      </p>
+      <p>🌷 Deň matiek – zľava 30 %<br/>
+        Doprajte svojej mame zaslúžený oddych. Zarezervujte jej masáž so zľavou 30 %.
+      </p>
+      <p class="px-2 py-1 mb-0 rounded-sm bg-[var(--color-dark)] text-[var(--color-light)] w-fit">Viac</p>
+    </div>
+  </a>
+</div>
