@@ -96,7 +96,7 @@ export const giftCards: ServiceItem[] = [
   {
     image: zdarma,
     name: "MASÁŽ 1+1 ZDARMA",
-    description: "Zdieľajte chvíľu pokoja - jedna masáž pre vás, druhá ako darček pre niekoho výnimočného",
+    description: "Zdieľajte chvíľu pokoja - jedna masáž pre vás, druhá ako darček pre niekoho výnimočného. Platnosť akcie do 30.07.2025",
     singlePrice: ""
   },
   {
