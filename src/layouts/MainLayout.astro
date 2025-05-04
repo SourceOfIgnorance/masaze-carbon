@@ -5,7 +5,10 @@ import Footer from "../components/common/Footer.astro";
 import ContactSection from "../components/common/ContactSection.astro";
 import Navbar from "../components/common/Navbar.astro";
 import Cookies from "../components/common/Cookies.astro";
-const {title = 'Masáže Carbon', description = "Profesionálne masážne služby"} = Astro.props;
+const {
+  title = 'Masáže Carbon - Profesionálne masážne služby v Topoľčanoch',
+  description = "Profesionálne masážne služby pre vaše zdravie a relax v Masáže Carbon. Objavte kvalitnú starostlivosť a príjemné prostredie."
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -14,18 +17,23 @@ const {title = 'Masáže Carbon', description = "Profesionálne masážne služb
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content={description}/>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <meta name="robots" content="index, follow"/>
+
+  <meta property="og:title" content={title}/>
+  <meta property="og:description" content={description}/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://masaze-carbon.sk"/>
+  <meta property="og:image" content="https://masaze-carbon.sk/src/assets/homePage/masazny-priestor-titulka-2.jpeg"/>
+
+  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml">
+  <link rel="icon" type="image/svg+xml" href="/masaze-carbon-favicon.png"/>
+  <link rel="canonical" href="https://masaze-carbon.sk" />
 
   <title>{title}</title>
 
-  <!-- Preconnect to font provider -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Preload hero image (ensure correct path!) -->
-  <link rel="preload" as="image" href="../assets/homePage/masirovanie-zeny-titulka.png"/>
-
-  <!-- Preload font -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
         as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
