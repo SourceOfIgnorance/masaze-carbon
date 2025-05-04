@@ -3,14 +3,14 @@ import firma from '../assets/cards/firmy.jpg';
 import zdarma from '../assets/cards/masaz-zdarma.webp';
 import klasika from '../assets/cards/klasicka-masaz.png';
 
-import relaxCard from '../assets/cards/hlboka-masaz.webp'
+import relaxCard from '../assets/cards/relaxacna-masaz.png'
 import deepCard from '../assets/cards/sportova-masaz.jpg'
 import sportCard from '../assets/cards/sportova-masaz.png'
 import maderoCard from '../assets/cards/madero-masaz.jpg'
 import denMatiek from '../assets/cards/den-matiek.jpg'
-import cardDoma from '../assets/cards/masaz-doma.webp'
+import cardDoma from '../assets/cards/masaze-doma.png'
 import comingSoon from '../assets/cards/pripravovane-novinky.png'
-import darcekovyPoukaz from '../assets/cards/darcekovy-pukaz.png'
+import darcekovyPoukaz from '../assets/cards/darcekovy-poukaz.png'
 
 export interface ServiceOption {
   duration: number;
