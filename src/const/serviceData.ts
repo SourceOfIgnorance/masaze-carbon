@@ -1,15 +1,16 @@
 import type {ImageMetadata} from "astro";
-import firma from '../assets/cards/masaz-firma.webp';
+import firma from '../assets/cards/firmy.jpg';
 import zdarma from '../assets/cards/masaz-zdarma.webp';
-import klasika from '../assets/cards/klasicka-masaz.webp';
+import klasika from '../assets/cards/klasicka-masaz.png';
 
-import deepCard from '../assets/cards/hlboka-masaz.webp'
-import sportCard from '../assets/cards/sportova-masaz.jpg'
+import relaxCard from '../assets/cards/hlboka-masaz.webp'
+import deepCard from '../assets/cards/sportova-masaz.jpg'
+import sportCard from '../assets/cards/sportova-masaz.png'
 import maderoCard from '../assets/cards/madero-masaz.jpg'
 import denMatiek from '../assets/cards/den-matiek.jpg'
 import cardDoma from '../assets/cards/masaz-doma.webp'
-import comingSoon from '../assets/cards/novinky-coskoro.png'
-import darcekovyPoukaz from '../assets/cards/darcekovy-pukaz.jpg'
+import comingSoon from '../assets/cards/pripravovane-novinky.png'
+import darcekovyPoukaz from '../assets/cards/darcekovy-pukaz.png'
 
 export interface ServiceOption {
   duration: number;
@@ -49,7 +50,7 @@ export const classicMassages: ServiceItem[] = [
     ]
   },
   {
-    image: deepCard,
+    image: relaxCard,
     name: "Relaxačná masáž",
     description: "Uvoľnite telo i myseľ v príjemnej atmosfére",
     options: [
