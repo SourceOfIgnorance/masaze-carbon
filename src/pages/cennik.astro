@@ -50,6 +50,29 @@ const categories = [
       </ul>
     </div>
   </div>
+  <button
+    id="floating-order-button"
+    type="button"
+    aria-label="Prejsť na sekciu objednať"
+    class="fixed bottom-6 right-6 z-50 bg-[var(--color-dark)] text-[var(--color-light)] px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-[var(--color-dark-85)] transition-colors duration-300 md:hidden"
+  >
+    Objednať
+  </button>
+
 </MainLayout>
 
 <script type="application/ld+json" set:html={JSON.stringify(priceListJson)}/>
+<script is:inline>
+  const floatingOrderBtn = document.getElementById("floating-order-button");
+
+[floatingOrderBtn, document.getElementById("order-button"), document.getElementById("mobile-order-button")]
+  .filter(Boolean)
+  .forEach(btn => {
+    btn.addEventListener("click", () => {
+      const contactSection = document.getElementById("contact-section");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+</script>
