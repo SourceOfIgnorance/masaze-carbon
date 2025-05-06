@@ -5,13 +5,12 @@ import Description from "../components/home/Description.astro";
 import FactSection from "../components/home/FactSection.astro";
 import AboutMe from "../components/home/AboutMe.astro";
 import {pageMetadata} from "../const/pageMetadata";
+import MobileSalePopup from "../components/common/Sale/MobileSalePopup.astro";
 ---
 
 <MainLayout title={pageMetadata.home.title} description={pageMetadata.home.description}>
-  <!-- Above the fold content (critical) -->
+  <MobileSalePopup/>
   <Hero/>
-
-  <!-- Below the fold content -->
   <Description/>
   <FactSection/>
   <AboutMe/>

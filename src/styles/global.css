@@ -7,6 +7,10 @@
     --font-primary: 'Lexend', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /*!* Theme 1: Grey Variant 1 *!*/
 /*.theme-default {*/
 /*    --color-dark: #3b3b3b; !* Medium dark grey *!*/
