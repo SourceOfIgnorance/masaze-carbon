@@ -92,11 +92,17 @@ const localBusinessSchema = {
                 masaze.carbon@gmail.com
               </a>
             </p>
-            <p class="flex items-center space-x-2 mt-2 whitespace-pre-line">
-              <span>Otváracie hodiny: Po - So</span>
-              <span>Od {openFrom}</span>
-              <span>Do {openUntil}</span>
-            </p>
+            <div>
+              <div class="flex items-center space-x-2 mt-2 whitespace-pre-line">
+                <div class="flex">
+                  <span class="mr-1">Otváracie hodiny:</span>
+                  <span>Po - So</span>
+                </div>
+
+                <span>Od {openFrom}</span>
+                <span>Do {openUntil}</span>
+              </div>
+            </div>
           </div>
 
           <div>
@@ -113,7 +119,7 @@ const localBusinessSchema = {
           </div>
 
           <div>
-            <h3 class="text-xl font-semibold mb-3 flex items-center">Sledujte ma:</h3>
+            <h3 class="text-xl font-semibold mb-3 flex items-center">Sledujte nás:</h3>
             <nav aria-label="Sociálne siete" class="flex space-x-4 ml-2">
               <a
                 href={facebookUrl}
