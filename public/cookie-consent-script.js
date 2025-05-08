@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const defaultConsent = {
     necessary: true,
     googleMaps: false,
+    analytics: false,
   };
 
   // Toggle visibility
@@ -35,24 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Save consent to localStorage
   function setConsent(consent) {
     localStorage.setItem("cookieConsent", JSON.stringify(consent));
+    updateAnalytics(consent.analytics);
+    updateMap(consent.googleMaps);
   }
 
-  // Show banner if no consent recorded yet (googleMaps key missing)
+  // Show banner if no consent recorded yet
   function shouldShowBanner() {
-    const consent = getConsent();
-    // Show banner if no consent exists at all
     return !localStorage.getItem("cookieConsent");
   }
 
-  if (shouldShowBanner()) {
-    // EITHER show banner:
-    banner.style.display = "flex";
-    // OR show modal directly:
-  }
-
   // Render or remove Google Maps iframe based on consent
-  function updateMap() {
-    const consent = getConsent();
+  function updateMap(googleMapsConsent) {
+    if (!mapContainer) return;
+    const consent = googleMapsConsent !== undefined ? {googleMaps: googleMapsConsent} : getConsent();
     if (consent.googleMaps) {
       if (!mapContainer.querySelector("iframe")) {
         mapContainer.innerHTML = `
@@ -75,6 +71,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Initialize Google Analytics
+  function updateAnalytics(analyticsConsent) {
+    const consent = analyticsConsent !== undefined ? {analytics: analyticsConsent} : getConsent();
+
+    if (consent.analytics && !window._gaInitialized) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CSW7TMJ625';
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      // Set default consent FIRST
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied'
+      });
+
+      // Update based on user choice
+      gtag('consent', 'update', {
+        'analytics_storage': consent.analytics ? 'granted' : 'denied'
+      });
+
+      gtag('js', new Date());
+      gtag('config', 'G-CSW7TMJ625');
+      window._gaInitialized = true;
+    }
+  }
+
   // Show banner if needed
   if (shouldShowBanner()) {
     banner.style.display = "flex";
@@ -82,41 +110,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Banner buttons
   document.getElementById("accept-all").addEventListener("click", () => {
-    setConsent({necessary: true, googleMaps: true});
+    setConsent({necessary: true, googleMaps: true, analytics: true});
     banner.style.display = "none";
-    updateMap();
-    updateManageButtonVisibility(); // Add this
+    updateManageButtonVisibility();
   });
 
   document.getElementById("decline-analytics").addEventListener("click", () => {
-    setConsent({necessary: true, googleMaps: false});
+    setConsent({necessary: true, googleMaps: false, analytics: false});
     banner.style.display = "none";
-    updateMap();
-    updateManageButtonVisibility(); // Add this
+    updateManageButtonVisibility();
   });
 
   // Manage cookies button opens modal
-  manageBtn.addEventListener("click", () => {
-    openModal();
-  });
-
-  // Modal open function
-  function openModal() {
-    const consent = getConsent();
-    form.googleMaps.checked = !!consent.googleMaps;
-    modal.classList.remove("hidden");
-    modal.setAttribute("aria-hidden", "false");
-    manageBtn.setAttribute("aria-expanded", "true");
-  }
-
-  // Modal close function
-  function closeModal() {
-    modal.classList.add("hidden");
-    modal.setAttribute("aria-hidden", "true");
-    manageBtn.setAttribute("aria-expanded", "false");
-  }
-
-  // Close modal buttons
+  manageBtn.addEventListener("click", openModal);
   closeBtn.addEventListener("click", closeModal);
   cancelBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -129,16 +135,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const consent = {
       necessary: true,
       googleMaps: form.googleMaps.checked,
+      analytics: form.analytics.checked,
     };
     setConsent(consent);
     closeModal();
     banner.style.display = "none";
-    updateMap();
-    updateManageButtonVisibility(); // Add this
+    updateManageButtonVisibility();
   });
 
-  updateManageButtonVisibility();
+  // Modal open function
+  function openModal() {
+    const consent = getConsent();
+    form.googleMaps.checked = !!consent.googleMaps;
+    form.analytics.checked = !!consent.analytics;
+    modal.classList.remove("hidden");
+    modal.setAttribute("aria-hidden", "false");
+    manageBtn.setAttribute("aria-expanded", "true");
+  }
 
-  // Initialize map on page load if consent given
+  // Modal close function
+  function closeModal() {
+    modal.classList.add("hidden");
+    modal.setAttribute("aria-hidden", "true");
+    manageBtn.setAttribute("aria-expanded", "false");
+  }
+
+  updateManageButtonVisibility();
   updateMap();
-});
+  updateAnalytics();
+})
