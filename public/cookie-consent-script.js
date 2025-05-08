@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (consent.analytics && !window._gaInitialized) {
       const script = document.createElement('script');
       script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CSW7TMJ625';
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-xx'; // Replace with your ID
       document.head.appendChild(script);
 
       window.dataLayer = window.dataLayer || [];
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       gtag('js', new Date());
-      gtag('config', 'G-CSW7TMJ625');
+      gtag('config', 'G-xx'); // Replace with your ID
       window._gaInitialized = true;
     }
   }
