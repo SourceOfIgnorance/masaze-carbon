@@ -14,6 +14,24 @@ const {
 <!DOCTYPE html>
 <html lang="sk">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CSW7TMJ625"></script>
+
+  <script is:inline type="application/javascript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    // Set default consent to denied (prevents data collection before consent)
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'ad_personalization': 'denied',
+      'ad_user_data': 'denied',
+      'wait_for_update': 500
+    });
+    // Initialize GA after default consent is set
+    gtag('js', new Date());
+    gtag('config', 'G-CSW7TMJ625', { 'anonymize_ip': true });
+  </script>
+
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content={description}/>
