@@ -10,17 +10,27 @@ const {
 } = Astro.props;
 ---
 
+<style is:inline>
+    .hero-section {
+        min-height: 100vh;
+        position: relative;
+    }
+    .text-shadow-sm {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+</style>
+
 <section class="relative overflow-hidden w-full h-screen flex flex-col justify-center items-center">
   <!-- Responsive, blurred background image -->
   <div class="absolute inset-0 -z-10">
     <Image id="hero-image"
-      src={heroBg3}
-      alt="Masážne štúdio Carbon - pozadie"
-      fill
-      class="object-cover object-left w-full h-full"
-      placeholder="blur"
-      sizes="(max-width: 640px) 100vw, 1920px"
-      priority
+           src={heroBg3}
+           alt="Masážne štúdio Carbon - pozadie"
+           fill
+           class="object-cover object-left w-full h-full"
+           placeholder="blur"
+           sizes="(max-width: 640px) 100vw, 1920px"
+           priority
     />
     <!-- Blurring and dark overlay for readability -->
     <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
