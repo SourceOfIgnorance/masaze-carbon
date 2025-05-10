@@ -7,7 +7,6 @@ export const businessName = "Masáže Carbon";
 export const streetAddress = "Tovarnícka 412/9";
 export const addressLocality = "Topoľčany";
 export const postalCode = "955 01";
-export const addressCountry = "SK";
 export const phone = "+421919236109";
 export const email = "masaze.carbon@gmail.com";
 export const facebookUrl = "https://www.facebook.com/share/1C9hradLsV/";
@@ -17,50 +16,22 @@ export const openUntil = "20:00"
 
 export const address = `${businessName}, ${streetAddress}, ${postalCode} ${addressLocality}`;
 export const directions = "Nachádzame sa na 1. poschodí v budove Carbon.";
-
-
-// Create LocalBusiness schema
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "DaySpa",
-  "name": businessName,
-  "url": Astro.url.origin,
-  "telephone": phone,
-  "email": email,
-  "description": "Profesionálne masážne služby v Topoľčanoch. Klasické, športové a hĺbkové masáže.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": streetAddress,
-    "addressLocality": addressLocality,
-    "postalCode": postalCode,
-    "addressCountry": addressCountry
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "48.5603713",
-    "longitude": "18.1657966"
-  },
-  "sameAs": [
-    facebookUrl,
-    instagramUrl
-  ],
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ],
-      "opens": openFrom,   // "08:00"
-      "closes": openUntil  // "20:00"
-    },
-  ],
-};
 ---
+
+<style>
+    #contact-section a {
+        text-decoration: none;
+    }
+
+    #contact-section a:hover,
+    #contact-section a:focus {
+        text-decoration: underline;
+    }
+
+    #contact-section a img:hover {
+        filter: brightness(1.2);
+    }
+</style>
 
 <section id="contact-section" class="pb-16 md:pt-16 bg-[var(--color-light)]">
   <div class="container mx-auto px-6 lg:px-12 max-w-screen-xl">
@@ -186,9 +157,6 @@ const localBusinessSchema = {
     </div>
   </div>
 
-  <!-- Schema markup -->
-  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}/>
-
   <script>
     // Utility: Detect if device is mobile
     function isMobile() {
@@ -227,18 +195,3 @@ const localBusinessSchema = {
     });
   </script>
 </section>
-
-<style>
-    #contact-section a {
-        text-decoration: none;
-    }
-
-    #contact-section a:hover,
-    #contact-section a:focus {
-        text-decoration: underline;
-    }
-
-    #contact-section a img:hover {
-        filter: brightness(1.2);
-    }
-</style>

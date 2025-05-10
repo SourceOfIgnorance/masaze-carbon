@@ -1,11 +1,13 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import {pageMetadata} from "../const/pageMetadata";
+
 import PricingCategory from "../components/services/PricingCategory.astro";
-import {generatePriceListJson} from '../utils/generatePriceListJson.ts';
 import {classicMassages, specialOffers, giftCards} from "../const/serviceData";
 const allServices = [...classicMassages, ...specialOffers, ...giftCards];
-const priceListJson = generatePriceListJson(allServices);
+
+import {getServiceJsonLd} from "../utils/serviceJsonLd";
+const serviceJsonLd = getServiceJsonLd(allServices)
 
 const categories = [
   {
@@ -34,6 +36,7 @@ const categories = [
 <MainLayout
   title={pageMetadata.cennik.title}
   description={pageMetadata.cennik.description}
+  jsonLd={[serviceJsonLd]}
 >
   <div class="pt-32 pb-8">
     <div class="container mx-auto px-4 max-w-5xl">
@@ -61,7 +64,6 @@ const categories = [
 
 </MainLayout>
 
-<script type="application/ld+json" set:html={JSON.stringify(priceListJson)}/>
 <script is:inline>
   const floatingOrderBtn = document.getElementById("floating-order-button");
 

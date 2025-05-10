@@ -2,14 +2,6 @@
 const {images} = Astro.props;
 ---
 
-<div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 hidden" id="lightbox">
-  <button class="absolute top-4 right-4 text-white text-3xl" id="closeBtn">&times;</button>
-  <button class="absolute left-4 text-white text-3xl" id="prevBtn">&lt;</button>
-  <img src="" alt="" class="max-h-[80vh] max-w-full rounded shadow-lg" id="lightboxImg">
-  <button class="absolute right-4 text-white text-3xl" id="nextBtn">&gt;</button>
-  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white" id="counter"></div>
-</div>
-
 <style>
     #lightbox.hidden {
         display: none;
@@ -19,6 +11,14 @@ const {images} = Astro.props;
         display: flex;
     }
 </style>
+
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 hidden" id="lightbox">
+  <button class="absolute top-4 right-4 text-white text-3xl" id="closeBtn">&times;</button>
+  <button class="absolute left-4 text-white text-3xl" id="prevBtn">&lt;</button>
+  <img src="" alt="" class="max-h-[80vh] max-w-full rounded shadow-lg" id="lightboxImg">
+  <button class="absolute right-4 text-white text-3xl" id="nextBtn">&gt;</button>
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white" id="counter"></div>
+</div>
 
 <span id="imagesData" class="hidden">{JSON.stringify(images)}</span>
 

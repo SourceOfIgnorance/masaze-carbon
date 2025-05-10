@@ -5,10 +5,13 @@ import Footer from "../components/common/Footer.astro";
 import ContactSection from "../components/common/ContactSection.astro";
 import Navbar from "../components/common/Navbar.astro";
 import Cookies from "../components/common/Cookies.astro";
+import {localBusinessSchema} from "../utils/contactJsonLd.ts"
 const {
   title = 'Masáže Carbon - Profesionálne masážne služby v Topoľčanoch',
-  description = "Profesionálne masážne služby pre vaše zdravie a relax v Masáže Carbon. Objavte kvalitnú starostlivosť a príjemné prostredie."
+  description = "Profesionálne masážne služby pre vaše zdravie a relax v Masáže Carbon. Objavte kvalitnú starostlivosť a príjemné prostredie.",
+  jsonLd = [],
 } = Astro.props;
+const allJsonLd = [localBusinessSchema, ...jsonLd]
 ---
 
 <!DOCTYPE html>
@@ -36,7 +39,9 @@ const {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content={description}/>
   <meta name="robots" content="index, follow"/>
-
+  {allJsonLd.map((data) => (
+    <script type="application/ld+json" set:html={JSON.stringify(data)} />
+  ))}
   <meta property="og:title" content={title}/>
   <meta property="og:description" content={description}/>
   <meta property="og:type" content="website"/>
