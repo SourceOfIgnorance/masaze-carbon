@@ -8,6 +8,7 @@ const allServices = [...classicMassages, ...specialOffers, ...giftCards];
 
 import {getServiceJsonLd} from "../utils/serviceJsonLd";
 const serviceJsonLd = getServiceJsonLd(allServices)
+import {richServiceJsonLd} from "../utils/richServiceJsonLd";
 
 const categories = [
   {
@@ -36,7 +37,7 @@ const categories = [
 <MainLayout
   title={pageMetadata.cennik.title}
   description={pageMetadata.cennik.description}
-  jsonLd={[serviceJsonLd]}
+  jsonLd={[serviceJsonLd, richServiceJsonLd]}
 >
   <div class="pt-32 pb-8">
     <div class="container mx-auto px-4 max-w-5xl">
