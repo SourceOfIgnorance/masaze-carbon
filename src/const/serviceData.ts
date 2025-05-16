@@ -7,7 +7,7 @@ import relaxCard from '../assets/cards/relaxacna-masaz.png'
 import deepCard from '../assets/cards/sportova-masaz.jpg'
 import sportCard from '../assets/cards/sportova-masaz.png'
 import maderoCard from '../assets/cards/madero-masaz.jpg'
-import denMatiek from '../assets/cards/den-matiek.jpg'
+// import denMatiek from '../assets/cards/den-matiek.jpg'
 import cardDoma from '../assets/cards/masaze-doma.png'
 import comingSoon from '../assets/cards/pripravovane-novinky.png'
 import darcekovyPoukaz from '../assets/cards/darcekovy-poukaz.png'
@@ -99,12 +99,12 @@ export const giftCards: ServiceItem[] = [
     description: "Zdieľajte chvíľu pokoja - jedna masáž pre vás, druhá ako darček pre niekoho výnimočného. Platnosť akcie do 30.07.2025",
     singlePrice: ""
   },
-  {
-    image: denMatiek,
-    name: "DEŇ MATIEK | ZĽAVA -30%",
-    description: "Venujte svojej mame chvíľu čistého oddychu ❤️",
-    singlePrice: ""
-  },
+  // {
+  //   image: denMatiek,
+  //   name: "DEŇ MATIEK | ZĽAVA -30%",
+  //   description: "Venujte svojej mame chvíľu čistého oddychu ❤️",
+  //   singlePrice: ""
+  // },
   {
     image: darcekovyPoukaz,
     name: "DARČEKOVÝ POUKAZ NA MASÁŽ",
