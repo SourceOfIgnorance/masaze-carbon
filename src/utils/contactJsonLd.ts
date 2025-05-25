@@ -14,7 +14,7 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "DaySpa",
   "name": businessName,
-  "url": "http://www.masaze-carbon.sk",
+  "url": "http://masaze-carbon.sk",
   "telephone": phone,
   "email": email,
   "description": "Profesionálne masážne služby v Topoľčanoch. Klasické, športové a hĺbkové masáže.",
