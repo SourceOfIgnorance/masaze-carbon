@@ -1,6 +1,6 @@
 ---
 import Logo from "../icons/Logo.astro";
-import SaleBadge from "./Sale/SaleBadge.astro"
+// import SaleBadge from "./Sale/SaleBadge.astro"
 const navData = [
   {href: '/', label: 'Domov'},
   {href: '/cennik', label: 'Cenník'},
@@ -47,16 +47,7 @@ const navData = [
         >
           Objednať
         </button>
-        <!--Change color button-->
-        <!--<button-->
-        <!--  id="color-toggle"-->
-        <!--  class="p-2 bg-[var(&#45;&#45;color-light)] text-[var(&#45;&#45;color-dark)] rounded shadow"-->
-        <!--  aria-label="Switch color theme"-->
-        <!--  type="button"-->
-        <!--&gt;-->
-        <!--  Zmeniť farbu-->
-        <!--</button>-->
-        <SaleBadge/>
+        <!--<SaleBadge/>-->
       </div>
 
       <!-- Mobile Hamburger Button -->
@@ -110,17 +101,6 @@ const navData = [
           Objednať
         </button>
       </li>
-      <!--Change color button-->
-      <!--<li>-->
-      <!--  <button-->
-      <!--    id="mobile-color-toggle"-->
-      <!--    class="w-full p-2 bg-[var(&#45;&#45;color-light)] text-[var(&#45;&#45;color-dark)] rounded shadow"-->
-      <!--    aria-label="Switch color theme"-->
-      <!--    type="button"-->
-      <!--  >-->
-      <!--    Zmeniť farbu-->
-      <!--  </button>-->
-      <!--</li>-->
     </ul>
   </div>
 </nav>
@@ -133,7 +113,7 @@ const navData = [
   const mobileMenu = document.getElementById("mobile-menu");
   const mobileSvg = document.getElementById("mobile-svg");
   const orderButton = document.getElementById("order-button");
-  const saleBadge = document.getElementById("sale-badge");
+  // const saleBadge = document.getElementById("sale-badge");
   const currentPath = window.location.pathname;
 
   // Helper to add/remove classes based on condition
@@ -165,7 +145,7 @@ const navData = [
       orderButton.classList.add("text-[var(--color-dark)]", !isHomePage);
       orderButton.classList.remove("text-[var(--color-light)]", !isHomePage);
 
-      saleBadge.classList.toggle("badge-invert", true);
+      // saleBadge.classList.toggle("badge-invert", true);
     } else {
       logo.classList.toggle("logo-light", isHomePage);
       logo.classList.toggle("logo-dark", !isHomePage);
@@ -175,7 +155,7 @@ const navData = [
       orderButton.classList.toggle("bg-[var(--color-dark)]", !isHomePage);
       orderButton.classList.toggle("text-[var(--color-light)]", !isHomePage);
 
-      saleBadge.classList.toggle("badge-invert", isHomePage);
+      // saleBadge.classList.toggle("badge-invert", isHomePage);
     }
 
     // Nav links color
