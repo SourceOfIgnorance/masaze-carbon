@@ -1,0 +1,58 @@
+export const userFormReviews = [
+    {
+        id: "8",
+        author: "Marta Baková",
+        rating: 5,
+        comment: `„Masáž bola pre mňa výnimočným zážitkom. Cítila som sa úplne uvoľnená a zrelaxovaná, no zároveň som ocenila vysoko profesionálny a fyzioterapeutický prístup. Bolo vidieť odbornosť, precíznosť a skutočný záujem o klienta. Určite odporúčam každému, kto hľadá kvalitnú starostlivosť aj príjemný oddych.“`,
+        datePublished: "2026-02-20T10:17:55Z",
+    },
+    {
+        id: "7",
+        author: "Daniela",
+        rating: 5,
+        comment: `Mala som 2 mesiace problémy - tŕpnutie rúk a veľké bolesti hlavy. Po masáži konečne ma prestala bolieť hlava. Keby som to vedela skôr, netrpela by som tak dlho. Masáž vrelo odporúčam každému. Masér aj sám zistil, kde je problém a pomohol mi. Rada prídem opäť a teraz už len preventívne zrelaxovať. Ďakujem `,
+        datePublished: "2026-01-13T15:34:20Z",
+    },
+    {
+        id: "6",
+        author: "Kristína",
+        rating: 5,
+        comment: `Som veľmi spokojná.Profesionálny prístup, priestor príjemný.Je vidieť výsledky už po prvej návšteve a pán masér si dá naozaj záležať na výborné vykonanej práce.odporúcam.`,
+        datePublished: "2025-11-25T08:37:59Z",
+    },
+    {
+        id: "5",
+        author: "Kristína",
+        rating: 5,
+        comment: `Odporúčam 👍, tu na masáži zrelaxujete určite.Profesionalny prístup,príjemná hudba a prostredie.vidiet,že sa tomu rozumie a k tomu ho to baví.a to je plus.`,
+        datePublished: "2025-11-19T11:10:16Z",
+    },
+    {
+        id: "4",
+        author: "Kristin",
+        rating: 5,
+        comment: `Masaž bola úžasná .podľa môjho očakávania. vždy sa uvoľnim.a cítim sa výborne. Skvelé prostredie a ešte skvelá Masaž Presne vie masér čo potrebujem. Už iného maséra nehľadám. A vrelo odporúčam..Treba zažiť. `,
+        datePublished: "2025-10-10T22:29:49Z",
+    },
+    {
+        id: "3",
+        author: "Lenka",
+        rating: 5,
+        comment: `Odporúčam všetkými desiatimi,zlaté ruky Pán masér 🙏`,
+        datePublished: "2025-08-05T13:41:51Z",
+    },
+    {
+        id: "2",
+        author: "Zuzana",
+        rating: 5,
+        comment: `Fantastická masáž. Určite sa vrátim `,
+        datePublished: "2025-06-02T10:07:21Z",
+    },
+    {
+        id: "1",
+        author: "Roman",
+        rating: 5,
+        comment: `najlepsia masaz za poslednych 5 rokov`,
+        datePublished: "2025-05-10T15:25:03Z",
+    },
+];
